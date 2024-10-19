@@ -1,2 +1,3 @@
 sources/google_api/google_bars.csv
 sources/google_api/test_api.csv
+configs/*.json
