@@ -1,3 +1,5 @@
 sources/google_api/google_bars.csv
 sources/google_api/test_api.csv
 configs/*.json
+sources/.ipynb_checkpoints
+database/.ipynb_checkpoints
