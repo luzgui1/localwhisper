@@ -101,26 +101,28 @@ class UnderstandingAgent:
         return "continuation" if similarity > 0.75 else "new_query"
 
     def extract_referenced_place(self, memory_manager):
-        """Tries to extract a place name from past messages."""
-        last_messages = memory_manager.get_last_messages(10)
+        """Tries to extract a place name from past messages safely."""
+        last_messages = memory_manager.get_last_messages(5)
 
-        # ✅ Check last assistant messages for past recommendations
         possible_places = []
-        for message in last_messages:
+        for message in reversed(last_messages):
             if message["role"] == "assistant":
-                words = message["content"].split()
-                for i in range(len(words)):
-                    for j in range(i + 2, min(i + 5, len(words) + 1)):  # Check word chunks of up to 4 words
-                        phrase = " ".join(words[i:j])
-                        if phrase.istitle():  # ✅ Detects place names by capital letters
-                            possible_places.append(phrase)
+                # ✅ Ensure message["content"] is a string before processing
+                content = message["content"]
+                if isinstance(content, str):  # ✅ Check if it's a string
+                    words = content.split()
+                    for i in range(len(words)):
+                        for j in range(i + 2, min(i + 5, len(words) + 1)):  
+                            phrase = " ".join(words[i:j])
+                            if phrase.istitle():  
+                                possible_places.append(phrase)
 
-        # ✅ Now check if user query contains any of these places
+        # ✅ Check if user query contains a referenced place
         for place in possible_places:
             if place.lower() in self.user_query.lower():
-                return place  # ✅ Return full place name
+                return place  
 
-        return None  # No match found
+        return None  
 
 
 # -----------------------------
@@ -211,11 +213,18 @@ class ContextualRewritingAgent:
             try:
                 response = client.chat.completions.create(
                     model="gpt-4o-mini",
-                    messages=[{"role": "system", "content": prompt}]
+                    messages=[{"role": "system", "content": prompt}],
+                    stream=True,  # ✅ Enable streaming
                 )
-                return response.choices[0].message.content  # ✅ FIXED
-            except Exception as e:
-                return "Desculpe, houve um erro ao processar sua mensagem. Tente novamente!"
+
+                for chunk in response:
+                    if chunk.choices[0].delta.content:
+                        yield chunk.choices[0].delta.content  # ✅ Ensure it streams properly
+
+            except Exception:
+                yield "Desculpe, houve um erro ao processar sua mensagem. Tente novamente!"
+
+            return  # ✅ Ensure function exits correctly
 
         # ✅ Securely format the retrieved establishments
         extracted_info = []
@@ -282,8 +291,13 @@ class ContextualRewritingAgent:
         try:
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
-                messages=[{"role": "system", "content": prompt}]
+                messages=[{"role": "system", "content": prompt}],
+                stream=True,  # ✅ Enable streaming
             )
-            return response.choices[0].message.content  # ✅ FIXED
-        except Exception as e:
-            return "Desculpe, houve um erro ao gerar a resposta. Tente novamente mais tarde!"
+
+            for chunk in response:
+                if chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+
+        except Exception:
+            yield "Desculpe, houve um erro ao gerar a resposta. Tente novamente mais tarde!"

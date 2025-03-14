@@ -47,11 +47,18 @@ if user_input := st.chat_input("Digite sua busca:"):
         # Step 4: Contextual Rewriting Agent - Generate a natural response
         rewriting_agent = ContextualRewritingAgent(user_input, establishments)
         response = rewriting_agent.generate_response()
-
-    memory.store_message("assistant", response)
-
+    
     with st.chat_message("assistant"):
-        st.markdown(response)
+        response_placeholder = st.empty()
+        full_response = ""
+
+        for chunk in response:
+            full_response += chunk
+            response_placeholder.markdown(full_response + "▌")  # Simulate typing effect
+
+        response_placeholder.markdown(full_response)  # ✅ Finalize response display
+
+    memory.store_message("assistant", full_response)
 
 
 
