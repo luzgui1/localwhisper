@@ -1,7 +1,0 @@
-pip install pandas
-pip install pymongo
-pip install googlemaps
-pip install shapely
-pip install torch
-pip install sentence-transformers
-pip install polars

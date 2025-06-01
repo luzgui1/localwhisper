@@ -3,3 +3,4 @@ sources/google_api/test_api.csv
 configs/*.json
 sources/.ipynb_checkpoints
 database/.ipynb_checkpoints
+*__pycache__*
