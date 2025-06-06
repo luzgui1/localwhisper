@@ -178,6 +178,8 @@ class Agents():
                         {data}
 
                         Based on those information and the user_input, provide the user a very well structured message for it's request.
+                        *RULES:*
+                        - Always speak in the same language of the user.
                     """
                 ),
                 ("user", "{input}")
@@ -201,6 +203,8 @@ class Agents():
                         User is not talking about urban leisure.
                         Please, provide a very well structured message for it's request.
                         Be persuasive and friendly, try to talk about the city and it's leisure options.
+                        *RULES:*
+                        - Always speak in the same language of the user.
                     """
                 ),
                 ("user", "{input}")
