@@ -76,7 +76,9 @@ class Agents():
         
         chain = intention_prompt | self.llm
         
-        agents_dictionary["intention"] = str(chain.invoke({"input": user_query}).content)
+        response = chain.invoke({"input": user_query}).content
+        intent = str(response).strip().strip('"').strip("'")
+        agents_dictionary["intention"] = intent
 
         return agents_dictionary
     
@@ -127,8 +129,6 @@ class Agents():
         
         details = [detail.strip().strip("'").strip('"') for detail in response.strip('[]').split(',')]
         agents_dictionary['detail'] = details
-
-        return agents_dictionary
     
 
     def ResponseAgent(self, user_query: str, agents_dictionary:dict, result_dictionary: dict):
@@ -144,52 +144,75 @@ class Agents():
 
         self.update_model_settings(model_name='gpt-4',temperature=0.7)
 
-        response_data = {}
-        filtered_dict = result_dictionary['candidates']
+        if agents_dictionary['intention'] != 'non_related_chat':
 
-        for d in filtered_dict:
-            if agents_dictionary['detail'] == 'geographic_detail':
-                response_data[d['name']] = {'summary':d['place-description'],'address':d['place-address'], 'website':d['website']}
+            response_data = {}
+            filtered_dict = result_dictionary['candidates']
 
-            elif agents_dictionary['detail'] == 'reviews_detail':
-                response_data[d['name']] = {'summary':d['place-description'],'bad-reviews':d['bad-reviews'],"good-reviews":d['good-reviews'],'website':d['website']}
+            for d in filtered_dict:
+                if agents_dictionary['detail'] == 'geographic_detail':
+                    response_data[d['name']] = {'summary':d['place-description'],'address':d['place-address'], 'website':d['website']}
+
+                elif agents_dictionary['detail'] == 'reviews_detail':
+                    response_data[d['name']] = {'summary':d['place-description'],'bad-reviews':d['bad-reviews'],"good-reviews":d['good-reviews'],'website':d['website']}
+                
+                elif agents_dictionary['detail'] == 'menu_detail':
+                    response_data[d['name']] = {'summary':d['place-description'],'description':d['menu'],"good-reviews":d['good-reviews'],'website':d['website']}
+
+                elif agents_dictionary['detail'] == 'music-detail':
+                    response_data[d['name']] = {'summary':d['place-description'],'description':d['menu'],"good-reviews":d['good-reviews'],'website':d['website']}
+                else:
+                    response_data[d['name']] = {'summary':d['place-description'],'website':d['website']}
+
+
+            response_prompt = ChatPromptTemplate.from_messages([
+                (
+                    "system", """
+                        You are the final agent in a chain of agents for urban leisure.
+                        If it's not your first user message of this session, *this is your memory*:
+
+                        {memory}
+
+                        And this is the final data prepared for you by other agents and tools:
+
+                        {data}
+
+                        Based on those information and the user_input, provide the user a very well structured message for it's request.
+                    """
+                ),
+                ("user", "{input}")
+            ])
+
+            chain = response_prompt | self.llm
             
-            elif agents_dictionary['detail'] == 'menu_detail':
-                response_data[d['name']] = {'summary':d['place-description'],'description':d['menu'],"good-reviews":d['good-reviews'],'website':d['website']}
+            agents_dictionary["response"] = str(chain.invoke({
+                "input": user_query,
+                "memory": result_dictionary['memory'],
+                "data": response_data
+                }).content)
+            return agents_dictionary["response"]
+            
+        else:
+            
+            response_prompt = ChatPromptTemplate.from_messages([
+                (
+                    "system", """
+                        You are the final agent in a chain of agents for urban leisure.
+                        User is not talking about urban leisure.
+                        Please, provide a very well structured message for it's request.
+                        Be persuasive and friendly, try to talk about the city and it's leisure options.
+                    """
+                ),
+                ("user", "{input}")
+            ])
 
-            elif agents_dictionary['detail'] == 'music-detail':
-                response_data[d['name']] = {'summary':d['place-description'],'description':d['menu'],"good-reviews":d['good-reviews'],'website':d['website']}
-            else:
-                response_data[d['name']] = {'summary':d['place-description'],'website':d['website']}
+            chain = response_prompt | self.llm
+            
+            agents_dictionary["response"] = str(chain.invoke({
+                "input": user_query
+            }).content)
+            return agents_dictionary["response"]
 
-
-        response_prompt = ChatPromptTemplate.from_messages([
-            (
-                "system", """
-                    You are the final agent in a chain of agents for urban leisure.
-                    If it's not your first user message of this session, *this is your memory*:
-
-                    {memory}
-
-                    And this is the final data prepared for you by other agents and tools:
-
-                    {data}
-
-                    Based on those information and the user_input, provide the user a very well structured message for it's request.
-                """
-            ),
-            ("user", "{input}")
-        ])
-
-        chain = response_prompt | self.llm
-        
-        agents_dictionary["response"] = str(chain.invoke({
-            "input": user_query,
-            "memory": result_dictionary['memory'],
-            "data": response_data
-        }).content)
-        
-        return agents_dictionary["response"]
 
 #%%
 
