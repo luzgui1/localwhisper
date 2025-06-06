@@ -6,17 +6,22 @@ import os
 from dotenv import load_dotenv
 import pprint
 
-# environments variables
+# Environment variables
 mongo_url = os.environ.get("MONGO_URL")
 qdrant_url = os.environ.get("QDRANT_URL")
 qdrant_key = os.environ.get("QDRANT_KEY")
 openai_key = os.environ.get("OPENAI_API_KEY")
 
-user_input = "busco por um barzinho de samba hoje"
+user_input = "busco por um bar de samba no centro de sao paulo"
+
+agentic_result = {
+    "intention":"",
+    "detail":"",
+    "response":""
+}
 
 result = {
-    "intention":""
-    ,"candidates":""
+    "candidates":""
     ,"memory":""
 }
 
@@ -27,9 +32,10 @@ mongo_tool = MongoSearchTool(mongo_url=mongo_url,database="api", collection="goo
 
 classification = agent.IntentionAgent(user_input, result)
 
-result['intention'] = classification['intention']
+agentic_result['intention'] = classification['intention']
 
-if result['intention'] != "non_related_chat":
+if agentic_result['intention'] != "non_related_chat":
+    
     # Call qdrant_tool
     candidates = qdrant_tool.__call__(user_input)
     candidate_names = [candidate['name'] for candidate in candidates['candidates']]
@@ -48,9 +54,20 @@ if result['intention'] != "non_related_chat":
             "bad-reviews": [review['text'] for review in mongo_result['candidates'][0]['reviews'] if review['rating'] < 4],
             "place-address": mongo_result['candidates'][0]['formatted_address'],
             "website": mongo_result['candidates'][0]['website'],
-            "price-level": mongo_result['candidates'][0]['price_level']
+            "price-level": mongo_result['candidates'][0]['price_level'],
+            # "menu": mongo_result['candidates'][0]['menu']
+            # "music": mongo_result['candidates'][0]['music']
         }
         
         result['candidates'].append(candidate_info)
+
+    # Initialize DetailAgent
+    detail = agent.DetailAgent(user_input,agentic_result)
+
+    # Initialize ResponseAgent
+    response = agent.ResponseAgent(user_input,agentic_result,result)
+
+    pprint.pprint(agentic_result)
+
 
 #%%

@@ -2,7 +2,6 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Filter, PointStruct
 from sentence_transformers import SentenceTransformer
 from pymongo import MongoClient
-import os
 
 class QdrantSearchTool:
     def __init__(self,qdrant_url,qdrant_key, collection: str = 'summary_db'):
