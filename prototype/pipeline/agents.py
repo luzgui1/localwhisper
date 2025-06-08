@@ -68,6 +68,8 @@ class Agents():
                         "non_related_chat": When user is not talking about anything related with urban leisure.
 
                     Respond **only** the label of intention and nothing else.
+                    Use your memory to help you classify the intention:
+                    {memory}
                 """
                 ),
                 
@@ -76,7 +78,7 @@ class Agents():
         
         chain = intention_prompt | self.llm
         
-        response = chain.invoke({"input": user_query}).content
+        response = chain.invoke({"input": user_query, "memory": agents_dictionary['memory']}).content
         intent = str(response).strip().strip('"').strip("'")
         agents_dictionary["intention"] = intent
 

@@ -7,8 +7,8 @@ import os
 
 # Environment variables
 mongo_url = os.environ.get("MONGO_URL")
-qdrant_url = os.environ.get("QDRANT_URL")
-qdrant_key = os.environ.get("QDRANT_KEY")
+qdrant_url = os.environ.get("QDRANT_CLUSTER_URL")
+qdrant_key = os.environ.get("QDRANT_API_KEY")
 openai_key = os.environ.get("OPENAI_API_KEY")
 
 agent = Agents()
