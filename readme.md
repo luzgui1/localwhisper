@@ -1,78 +1,79 @@
-# 🗺️ LocalWhisper — Seu Guia Urbano com Inteligência Artificial
+# 🗺️ LocalWhisper — Your Urban Leisure AI Guide
 
-[🔗 Acesse o projeto em produção](https://localwhisper-v001.streamlit.app/)
+[🔗 Try the live app](https://localwhisper-v001.streamlit.app/)
 
-LocalWhisper é um agente conversacional desenvolvido com LangChain, LangGraph e Streamlit que atua como um concierge urbano inteligente. Ele entende seu pedido, classifica a intenção, busca em bancos de dados vetoriais e relacionais, e te entrega sugestões precisas de bares, restaurantes e atividades culturais — tudo com linguagem natural e contextualizada.
-
----
-
-## 💡 Visão geral
-
-O LocalWhisper simula um especialista em lazer urbano, capaz de interagir como um guia local, entendendo desde pedidos vagos como *"quero um lugar com cerveja barata"* até consultas específicas como *"me recomenda um bar de samba na Vila Mariana?"*.
+**LocalWhisper** is an intelligent conversational agent built with LangChain, LangGraph, and Streamlit that acts as a smart city guide. It understands natural language queries, identifies user intent, searches across structured and semantic databases, and delivers personalized recommendations for bars, restaurants, and cultural venues in São Paulo.
 
 ---
 
-## 🧠 Tecnologias utilizadas
+## 💡 What it does
 
-- **LangChain**: modelagem de agentes e prompts
-- **LangGraph**: orquestração de múltiplos agentes em cadeia
-- **Streamlit**: interface conversacional simples e rápida
-- **MongoDB**: banco relacional com dados estruturados dos locais
-- **QdrantDB**: base vetorial para buscas semânticas por similaridade
-- **OpenAI GPT-4**: motor principal dos agentes
+LocalWhisper simulates a hyper-local leisure assistant. Whether the user asks something vague like _"looking for a cheap beer spot"_ or specific like _"recommend a samba bar near Vila Mariana"_, the system routes the request through agents and tools to generate a meaningful and location-aware response.
 
 ---
 
-## 🔁 Arquitetura dos agentes
+## 🧠 Tech Stack
+
+- **LangChain** – Prompt engineering and agent interfaces
+- **LangGraph** – Multi-agent orchestration
+- **Streamlit** – Conversational web interface
+- **MongoDB** – Structured data store for places
+- **QdrantDB** – Vector store for semantic similarity search
+- **OpenAI GPT-4** – Core LLM powering the agents
+
+---
+
+## 🤖 Agent Pipeline
 
 1. **IntentionAgent**  
-   Classifica a intenção do usuário: genérica, detalhada ou irrelevante.
+   Classifies the user’s intention: general, detailed, or irrelevant to urban leisure.
 
 2. **DetailAgent**  
-   Entende detalhes relevantes: localização, cardápio, avaliação ou música.
+   Extracts user preferences: geographic region, menu details, music genre, reviews.
 
 3. **QdrantSearchTool**  
-   Realiza busca semântica baseada na descrição da entrada.
+   Performs semantic search to identify the most contextually relevant places.
 
 4. **MongoSearchTool**  
-   Puxa informações estruturadas como endereço, menu, reviews, etc.
+   Retrieves structured data: address, reviews, pricing, website, etc.
 
 5. **ResponseAgent**  
-   Compõe a resposta final, baseada no histórico e nos dados encontrados.
+   Crafts a fluent, localized response using retrieved data and conversational memory.
 
 ---
 
-## 🧪 Exemplos de uso
+## 🧪 Examples
 
-**Usuário**: "Quero um bar com samba na Vila Mariana"  
-**Resposta**: Lista de bares com descrição, link e recomendação personalizada.
+**User**: "Recommend a samba bar in Vila Mariana"  
+**Response**: A curated list with names, descriptions, and website links.
 
-**Usuário**: "Ele tem música ao vivo?"  
-**Resposta**: Detalhamento específico do lugar anterior, com memória de contexto.
+**User**: "Is it well rated?"  
+**Response**: An explanation based on top and bottom reviews.
 
-**Usuário**: "Tá vivo?"  
-**Resposta**: Agente responde em tom leve e convida o usuário a explorar o que a cidade tem a oferecer.
+**User**: "sup?"  
+**Response**: A friendly nudge toward discovering cool places in town.
 
 ---
 
-## 🚀 Como rodar localmente
+## 🚀 Running Locally
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/localwhisper.git
+# Clone this repository
+git clone https://github.com/your-user/localwhisper.git
 cd localwhisper
 
-# Instale as dependências
+# Install dependencies
 pip install -r requirements.txt
 
-# Crie um .env com suas chaves
+# Add your API keys in a .env file
 touch .env
-# Adicione as variáveis:
+# Set:
 # MONGO_URL=
 # QDRANT_URL=
 # QDRANT_KEY=
 # OPENAI_API_KEY=
 
-# Rode localmente
+# Run the app
 streamlit run app.py
+
 
