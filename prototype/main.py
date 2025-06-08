@@ -29,7 +29,7 @@ def run_pipeline(user_input:str, chat_history:list):
     }
 
 
-    classification = agent.IntentionAgent(user_input, agentic_result)
+    classification = agent.IntentionAgent(user_input, agentic_result, result)
     agentic_result['intention'] = classification['intention']
 
     if agentic_result['intention'] != "non_related_chat":

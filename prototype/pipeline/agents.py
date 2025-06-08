@@ -40,7 +40,7 @@ class Agents():
             temperature=self.temperature
         )
 
-    def IntentionAgent(self, user_query: str, agents_dictionary: dict):
+    def IntentionAgent(self, user_query: str, agents_dictionary: dict, result_dictionary:dict):
 
         """"
         This will be the first agent of the project.
@@ -78,7 +78,7 @@ class Agents():
         
         chain = intention_prompt | self.llm
         
-        response = chain.invoke({"input": user_query, "memory": agents_dictionary['memory']}).content
+        response = chain.invoke({"input": user_query, "memory": result_dictionary['memory']}).content
         intent = str(response).strip().strip('"').strip("'")
         agents_dictionary["intention"] = intent
 
