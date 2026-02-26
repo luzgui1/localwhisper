@@ -1,7 +1,0 @@
-langgraph
-langchain-core
-langchain-openai
-pymongo
-qdrant-client
-python-dotenv
-sentence-transformers

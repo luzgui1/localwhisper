@@ -5,3 +5,4 @@ sources/.ipynb_checkpoints
 database/.ipynb_checkpoints
 *__pycache__*
 *.DS_Store*
+logger.log
