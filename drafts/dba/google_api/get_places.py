@@ -8,12 +8,8 @@ import googlemaps
 import logging
 from pipeline.api_runner import GooglePlacesCollector
 
-
-gmaps = googlemaps.Client(key='AIzaSyA9dYrpkWoIBubwT92QpatvnAT-1b8suU4')
-# Polígono final da cidade de São Paulo obtido no script get_polygons.py
-
-print(gmaps.places(query='bar', location=(40.7128, -74.0060), radius=1000))
-
+api_key = os.getenv("GOOGLE_MAPS_API")
+gmaps = googlemaps.Client(key=api_key)
 polygon_file = './polygons/sao_paulo_polygon.json'
 
 polygon = json.load(open(polygon_file))
