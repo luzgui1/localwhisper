@@ -18,7 +18,7 @@ from . import session
 from logger import log
 
 # ── Encoder singleton ─────────────────────────────────────────────────────────
-log.info("Loading SentenceTransformer model (one-time)…")
+log.info("Loading SentenceTransformer model")
 _t0 = time.perf_counter()
 _encoder = SentenceTransformer("all-MiniLM-L6-v2")
 log.info("Model loaded in %.2fs", time.perf_counter() - _t0)
