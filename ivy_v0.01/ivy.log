@@ -1,0 +1,728 @@
+18:06:40.377  INFO     ivy  Loading SentenceTransformer model (one-time)…
+18:06:42.911  INFO     ivy  Model loaded in 2.53s
+18:06:48.088  INFO     ivy  ▶ run_verbose()  input='oie! Tudo bem??'
+18:06:50.391  DEBUG    ivy  step=2  final_answer (57 chars)
+18:06:50.391  INFO     ivy  ■ run_verbose() done in 2.30s  steps=2
+18:07:06.455  INFO     ivy  ▶ run_verbose()  input='que saudade Ivy! Vc ta por onde?'
+18:07:08.113  DEBUG    ivy  step=2  final_answer (201 chars)
+18:07:08.113  INFO     ivy  ■ run_verbose() done in 1.66s  steps=2
+18:07:17.544  INFO     ivy  ▶ run_verbose()  input='Queria explorar algo com vc'
+18:07:19.108  DEBUG    ivy  step=2  final_answer (231 chars)
+18:07:19.109  INFO     ivy  ■ run_verbose() done in 1.56s  steps=2
+18:07:26.919  INFO     ivy  ▶ run_verbose()  input='Hoje ta um friozinho em sp menina'
+18:07:28.476  DEBUG    ivy  step=2  final_answer (169 chars)
+18:07:28.477  INFO     ivy  ■ run_verbose() done in 1.56s  steps=2
+18:07:38.084  INFO     ivy  ▶ run_verbose()  input='que ideia otima, adoraria um chocolate quente hoje!'
+18:07:39.004  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+18:07:39.008  INFO     ivy  → get_user_location called
+18:07:39.356  INFO     ivy  ← get_user_location OK in 0.35s → São Paulo, Brazil (-23.5475, -46.6361)
+18:07:39.359  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+18:07:40.660  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'chocolate quente', 'lat': -23.5475, 'lng': -46.6361}
+18:07:40.662  INFO     ivy  → search_and_rank_places  query='chocolate quente'  lat=-23.5475  lng=-46.6361  radius=500m
+18:07:41.731  INFO     ivy    gmaps.places → 20 results
+18:07:41.732  DEBUG    ivy    [1/20] details for '89ºC Coffee Station'
+18:07:42.075  DEBUG    ivy    [2/20] details for 'We Coffee'
+18:07:42.479  DEBUG    ivy    [3/20] details for 'Bacio Di Latte - República'
+18:07:42.889  DEBUG    ivy    [4/20] details for 'Por um Punhado de Dólares'
+18:07:43.228  DEBUG    ivy    [5/20] details for 'Pati Piva Higienópolis'
+18:07:43.607  DEBUG    ivy    [6/20] details for 'mug.sp - Avenida Paulista'
+18:07:44.015  DEBUG    ivy    [7/20] details for 'Café do Farol - Mag Café'
+18:07:44.340  DEBUG    ivy    [8/20] details for 'Kopenhagen'
+18:07:44.656  DEBUG    ivy    [9/20] details for 'Casa Bauducco'
+18:07:44.972  DEBUG    ivy    [10/20] details for 'Maria Cristina Doces - Loja Centro'
+18:07:45.292  DEBUG    ivy    [11/20] details for 'Dengo'
+18:07:45.598  DEBUG    ivy    [12/20] details for 'Kop Koffee'
+18:07:45.961  DEBUG    ivy    [13/20] details for 'Godere Artesanal'
+18:07:46.371  DEBUG    ivy    [14/20] details for 'Dengo Chocolates | Shopping Cidade São Paulo'
+18:07:46.690  DEBUG    ivy    [15/20] details for 'Dengo Chocolates | Pátio Paulista'
+18:07:47.004  DEBUG    ivy    [16/20] details for 'Café Girondino'
+18:07:47.395  DEBUG    ivy    [17/20] details for 'Kopenhagen Dom Jose de Barros'
+18:07:47.697  DEBUG    ivy    [18/20] details for 'Cacau Noir Chocolates - Shopping Pátio paulista'
+18:07:48.014  DEBUG    ivy    [19/20] details for 'GRÃO ESPRESSO'
+18:07:48.329  DEBUG    ivy    [20/20] details for 'Kopenhagen'
+18:07:48.724  INFO     ivy    fetched and normalized 20 places in 8.06s — ranking now…
+18:07:54.614  DEBUG    ivy      89ºC Coffee Station            → 0.719
+18:07:54.614  DEBUG    ivy      We Coffee                      → 0.708
+18:07:54.614  DEBUG    ivy      Bacio Di Latte - República     → 0.661
+18:07:54.614  DEBUG    ivy      Por um Punhado de Dólares      → 0.705
+18:07:54.614  DEBUG    ivy      Pati Piva Higienópolis         → 0.605
+18:07:54.614  DEBUG    ivy      mug.sp - Avenida Paulista      → 0.676
+18:07:54.614  DEBUG    ivy      Café do Farol - Mag Café       → 0.606
+18:07:54.614  DEBUG    ivy      Kopenhagen                     → 0.618
+18:07:54.614  DEBUG    ivy      Casa Bauducco                  → 0.627
+18:07:54.614  DEBUG    ivy      Maria Cristina Doces - Loja Ce → 0.645
+18:07:54.614  DEBUG    ivy      Dengo                          → 0.666
+18:07:54.614  DEBUG    ivy      Kop Koffee                     → 0.576
+18:07:54.614  DEBUG    ivy      Godere Artesanal               → 0.650
+18:07:54.614  DEBUG    ivy      Dengo Chocolates | Shopping Ci → 0.606
+18:07:54.614  DEBUG    ivy      Dengo Chocolates | Pátio Pauli → 0.667
+18:07:54.614  DEBUG    ivy      Café Girondino                 → 0.677
+18:07:54.614  DEBUG    ivy      Kopenhagen Dom Jose de Barros  → 0.573
+18:07:54.614  DEBUG    ivy      Cacau Noir Chocolates - Shoppi → 0.650
+18:07:54.614  DEBUG    ivy      GRÃO ESPRESSO                  → 0.622
+18:07:54.614  DEBUG    ivy      Kopenhagen                     → 0.578
+18:07:54.614  INFO     ivy  ← search_and_rank_places OK in 13.95s → top: '89ºC Coffee Station' (0.719)
+18:07:54.618  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "89ºC Coffee Station", "address": "Praça da Liberdade, 169 - Liberdade, São Paulo - SP, 01…
+18:08:01.165  DEBUG    ivy  step=6  final_answer (1723 chars)
+18:08:01.165  INFO     ivy  ■ run_verbose() done in 23.08s  steps=6
+18:24:57.110  INFO     ivy  Loading SentenceTransformer model (one-time)…
+18:24:59.555  INFO     ivy  Model loaded in 2.44s
+18:25:03.701  INFO     ivy  ▶ run_verbose()  input='oieee'
+18:25:05.052  DEBUG    ivy  step=2  final_answer (21 chars)
+18:25:05.052  INFO     ivy  ■ run_verbose() done in 1.35s  steps=2
+18:25:09.841  INFO     ivy  ▶ run_verbose()  input='que saudede Ivy!'
+18:25:11.064  DEBUG    ivy  step=2  final_answer (71 chars)
+18:25:11.065  INFO     ivy  ■ run_verbose() done in 1.22s  steps=2
+18:25:19.544  INFO     ivy  ▶ run_verbose()  input='ta um friozinho hoje em sp ne'
+18:25:21.130  DEBUG    ivy  step=2  final_answer (219 chars)
+18:25:21.130  INFO     ivy  ■ run_verbose() done in 1.58s  steps=2
+18:25:35.269  INFO     ivy  ▶ run_verbose()  input='nossa, eu aceito tomar um chocolate quente, que boa ideia'
+18:25:36.522  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+18:25:36.525  INFO     ivy  → get_user_location called
+18:25:36.865  INFO     ivy  ← get_user_location OK in 0.34s → São Paulo, Brazil (-23.5475, -46.6361)
+18:25:36.869  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+18:25:38.599  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'chocolate quente aconchegante', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 1500}
+18:25:38.601  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=1500m
+18:25:39.418  INFO     ivy    gmaps.places → 20 results
+18:25:39.418  DEBUG    ivy    [1/20] details for 'mug.sp - Avenida Paulista'
+18:25:39.823  DEBUG    ivy    [2/20] details for 'Café do Farol - Mag Café'
+18:25:40.179  DEBUG    ivy    [3/20] details for 'FARINELLA'
+18:25:40.517  DEBUG    ivy    [4/20] details for 'Flavorati Fábrica de Chocolates e café'
+18:25:40.836  DEBUG    ivy    [5/20] details for 'Casa Bauducco'
+18:25:41.160  DEBUG    ivy    [6/20] details for 'Caritó Cookies'
+18:25:41.487  DEBUG    ivy    [7/20] details for 'Waku Waku'
+18:25:41.779  DEBUG    ivy    [8/20] details for 'IL BARISTA CAFÉS ESPECIAIS - B3'
+18:25:42.116  DEBUG    ivy    [9/20] details for 'Café Girondino'
+18:25:42.442  DEBUG    ivy    [10/20] details for 'Café Girondino'
+18:25:42.744  DEBUG    ivy    [11/20] details for 'The Coffee Bloom'
+18:25:43.100  DEBUG    ivy    [12/20] details for 'Kop Koffee'
+18:25:43.408  DEBUG    ivy    [13/20] details for 'Fazenda Café'
+18:25:43.815  DEBUG    ivy    [14/20] details for 'Bacio Di Latte - República'
+18:25:44.226  DEBUG    ivy    [15/20] details for 'Bodogami Restaurante e Cafeteria'
+18:25:44.584  DEBUG    ivy    [16/20] details for 'Magg Café Copan | Cafeteria no Centro Histórico de São Paulo'
+18:25:44.942  DEBUG    ivy    [17/20] details for 'GRÃO ESPRESSO'
+18:25:45.352  DEBUG    ivy    [18/20] details for 'Dengo'
+18:25:45.660  DEBUG    ivy    [19/20] details for 'Takkø Café - Vila Buarque'
+18:25:46.070  DEBUG    ivy    [20/20] details for 'Sabelucha Cafeteria'
+18:25:46.488  INFO     ivy    fetched 20 places in 7.89s — ranking…
+18:25:48.288  DEBUG    ivy      mug.sp - Avenida Paulista      → 0.663
+18:25:48.288  DEBUG    ivy      Café do Farol - Mag Café       → 0.598
+18:25:48.288  DEBUG    ivy      FARINELLA                      → 0.636
+18:25:48.288  DEBUG    ivy      Flavorati Fábrica de Chocolate → 0.669
+18:25:48.288  DEBUG    ivy      Casa Bauducco                  → 0.637
+18:25:48.288  DEBUG    ivy      Caritó Cookies                 → 0.657
+18:25:48.288  DEBUG    ivy      Waku Waku                      → 0.631
+18:25:48.289  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B → 0.623
+18:25:48.289  DEBUG    ivy      Café Girondino                 → 0.620
+18:25:48.289  DEBUG    ivy      Café Girondino                 → 0.676
+18:25:48.289  DEBUG    ivy      The Coffee Bloom               → 0.588
+18:25:48.289  DEBUG    ivy      Kop Koffee                     → 0.572
+18:25:48.289  DEBUG    ivy      Fazenda Café                   → 0.613
+18:25:48.289  DEBUG    ivy      Bacio Di Latte - República     → 0.658
+18:25:48.289  DEBUG    ivy      Bodogami Restaurante e Cafeter → 0.668
+18:25:48.289  DEBUG    ivy      Magg Café Copan | Cafeteria no → 0.643
+18:25:48.289  DEBUG    ivy      GRÃO ESPRESSO                  → 0.615
+18:25:48.289  DEBUG    ivy      Dengo                          → 0.651
+18:25:48.289  DEBUG    ivy      Takkø Café - Vila Buarque      → 0.660
+18:25:48.289  DEBUG    ivy      Sabelucha Cafeteria            → 0.655
+18:25:48.289  INFO     ivy  ← search_and_rank_places OK in 9.69s → top: 'Café Girondino' (0.676)
+18:25:48.294  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Café Girondino", "address": "R. Boa Vista, 365 - Centro Histórico de São Paulo, São Paulo…
+18:25:52.069  DEBUG    ivy  step=6  final_answer (1174 chars)
+18:25:52.069  INFO     ivy  ■ run_verbose() done in 16.80s  steps=6
+18:26:14.903  INFO     ivy  ▶ run_verbose()  input='me fale um pouco mais da Flavorati! E perto de mim?'
+18:26:16.808  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+18:26:16.809  INFO     ivy  → get_user_location called
+18:26:17.152  INFO     ivy  ← get_user_location OK in 0.34s → São Paulo, Brazil (-23.5475, -46.6361)
+18:26:17.155  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+18:26:18.384  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'Flavorati Fábrica de Chocolates e Café', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 2000}
+18:26:18.386  INFO     ivy  → search_and_rank_places  query='Flavorati Fábrica de Chocolates e Café'  lat=-23.5475  lng=-46.6361  radius=2000m
+18:26:18.940  INFO     ivy    gmaps.places → 1 results
+18:26:18.940  DEBUG    ivy    [1/1] details for 'Flavorati Fábrica de Chocolates e café'
+18:26:19.303  INFO     ivy    fetched 1 places in 0.92s — ranking…
+18:26:20.572  DEBUG    ivy      Flavorati Fábrica de Chocolate → 0.758
+18:26:20.572  INFO     ivy  ← search_and_rank_places OK in 2.19s → top: 'Flavorati Fábrica de Chocolates e café' (0.758)
+18:26:20.579  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Flavorati Fábrica de Chocolates e café", "address": "R. Moreira e Costa, 482 - Ipiranga, …
+18:26:23.043  DEBUG    ivy  step=6  final_answer (580 chars)
+18:26:23.043  INFO     ivy  ■ run_verbose() done in 8.14s  steps=6
+18:26:54.977  INFO     ivy  ▶ run_verbose()  input='Qual e a faixa de preco geralmente por la? Tem informacoes sobre cardapio?'
+18:26:57.299  DEBUG    ivy  step=2  final_answer (561 chars)
+18:26:57.300  INFO     ivy  ■ run_verbose() done in 2.32s  steps=2
+22:05:53.332  INFO     ivy  Loading SentenceTransformer model (one-time)…
+22:05:55.942  INFO     ivy  Model loaded in 2.61s
+22:06:08.175  INFO     ivy  ▶ run()  input='e aiiii'
+22:06:10.962  INFO     ivy  ■ run() done in 2.79s
+22:06:38.690  INFO     ivy  ▶ run()  input='gostaria de comer um hamburguinho hoje o que vc recomenda aqui perto de mim'
+22:06:39.668  INFO     ivy  → get_user_location called
+22:06:40.050  INFO     ivy  ← get_user_location OK in 0.38s → São Paulo, Brazil (-23.5475, -46.6361)
+22:06:52.139  INFO     ivy  → search_and_rank_places  query='hamburgueria'  lat=-23.5475  lng=-46.6361  radius=1500m
+22:06:52.924  INFO     ivy    gmaps.places → 20 results
+22:06:52.925  DEBUG    ivy    [1/20] details for 'California Burger'
+22:06:53.333  DEBUG    ivy    [2/20] details for 'Hamburgueria Bullguer'
+22:06:54.356  DEBUG    ivy    [3/20] details for 'Sujinho Centro da Cidade'
+22:06:54.707  DEBUG    ivy    [4/20] details for 'Hamburgueria do Sujinho'
+22:06:55.070  DEBUG    ivy    [5/20] details for 'Hamburgueria Rap Burguer na Consolação'
+22:06:55.440  DEBUG    ivy    [6/20] details for 'Lado Burger - Hamburgueria Artesanal'
+22:06:55.807  DEBUG    ivy    [7/20] details for 'Hamburgueria Bullguer'
+22:06:56.300  DEBUG    ivy    [8/20] details for 'Hamburgueria Perfect Burguer. Hambúrguer artesanal'
+22:06:56.765  DEBUG    ivy    [9/20] details for 'Hamburg Hamburgueria Artesanal'
+22:06:57.087  DEBUG    ivy    [10/20] details for 'Hamburgueria Bullguer'
+22:06:57.405  DEBUG    ivy    [11/20] details for 'Smash Burger Bela Vista - Hamburgueria'
+22:06:57.835  DEBUG    ivy    [12/20] details for 'Hamburgueria & Bar Luz | Miguelitus'
+22:06:58.141  DEBUG    ivy    [13/20] details for 'Zezinho Hamburgueria'
+22:06:58.552  DEBUG    ivy    [14/20] details for 'Frederica Hamburgueria'
+22:06:58.961  DEBUG    ivy    [15/20] details for 'Haven Burger Hamburgueria'
+22:06:59.283  DEBUG    ivy    [16/20] details for 'Hamburgueria Itu'
+22:06:59.680  DEBUG    ivy    [17/20] details for "Hamburgueria Vit's Burger"
+22:07:00.091  DEBUG    ivy    [18/20] details for 'Hamburgueria Bullguer'
+22:07:00.419  DEBUG    ivy    [19/20] details for 'Hamburgueria Seu Dudu na Mooca'
+22:07:00.805  DEBUG    ivy    [20/20] details for 'Ray Burguer - Hamburgueria em Bela vista'
+22:07:01.116  INFO     ivy    fetched 20 places in 8.98s — ranking…
+22:07:01.970  DEBUG    ivy      California Burger              → 0.686
+22:07:01.971  DEBUG    ivy      Hamburgueria Bullguer          → 0.770
+22:07:01.971  DEBUG    ivy      Sujinho Centro da Cidade       → 0.721
+22:07:01.971  DEBUG    ivy      Hamburgueria do Sujinho        → 0.816
+22:07:01.971  DEBUG    ivy      Hamburgueria Rap Burguer na Co → 0.765
+22:07:01.971  DEBUG    ivy      Lado Burger - Hamburgueria Art → 0.715
+22:07:01.971  DEBUG    ivy      Hamburgueria Bullguer          → 0.769
+22:07:01.971  DEBUG    ivy      Hamburgueria Perfect Burguer.  → 0.675
+22:07:01.971  DEBUG    ivy      Hamburg Hamburgueria Artesanal → 0.767
+22:07:01.971  DEBUG    ivy      Hamburgueria Bullguer          → 0.784
+22:07:01.971  DEBUG    ivy      Smash Burger Bela Vista - Hamb → 0.641
+22:07:01.971  DEBUG    ivy      Hamburgueria & Bar Luz | Migue → 0.734
+22:07:01.971  DEBUG    ivy      Zezinho Hamburgueria           → 0.755
+22:07:01.971  DEBUG    ivy      Frederica Hamburgueria         → 0.699
+22:07:01.971  DEBUG    ivy      Haven Burger Hamburgueria      → 0.671
+22:07:01.971  DEBUG    ivy      Hamburgueria Itu               → 0.576
+22:07:01.971  DEBUG    ivy      Hamburgueria Vit's Burger      → 0.752
+22:07:01.971  DEBUG    ivy      Hamburgueria Bullguer          → 0.759
+22:07:01.971  DEBUG    ivy      Hamburgueria Seu Dudu na Mooca → 0.634
+22:07:01.971  DEBUG    ivy      Ray Burguer - Hamburgueria em  → 0.570
+22:07:01.971  INFO     ivy  ← search_and_rank_places OK in 9.83s → top: 'Hamburgueria do Sujinho' (0.816)
+22:07:06.337  INFO     ivy  ■ run() done in 27.65s
+22:07:27.875  INFO     ivy  ▶ run()  input='o que vc acha do saint jones?'
+22:07:30.868  INFO     ivy  ■ run() done in 2.99s
+22:07:58.877  INFO     ivy  ▶ run()  input='onde fica o saint jones?'
+22:07:59.692  INFO     ivy  → get_user_location called
+22:08:00.068  INFO     ivy  ← get_user_location OK in 0.38s → São Paulo, Brazil (-23.5475, -46.6361)
+22:08:02.545  INFO     ivy  → search_and_rank_places  query='Saint Jones hamburgueria'  lat=-23.5475  lng=-46.6361  radius=2000m
+22:08:03.080  INFO     ivy    gmaps.places → 3 results
+22:08:03.081  DEBUG    ivy    [1/3] details for 'ST. JONES'
+22:08:03.469  DEBUG    ivy    [2/3] details for 'ST. JONES'
+22:08:03.786  DEBUG    ivy    [3/3] details for 'St. Jones - Tatuapé'
+22:08:04.088  INFO     ivy    fetched 3 places in 1.54s — ranking…
+22:08:05.401  DEBUG    ivy      ST. JONES                      → 0.616
+22:08:05.401  DEBUG    ivy      ST. JONES                      → 0.658
+22:08:05.401  DEBUG    ivy      St. Jones - Tatuapé            → 0.502
+22:08:05.401  INFO     ivy  ← search_and_rank_places OK in 2.86s → top: 'ST. JONES' (0.658)
+22:08:08.327  INFO     ivy  ■ run() done in 9.45s
+22:08:33.114  INFO     ivy  ▶ run()  input='como esta avaliado o st jones vila mariana?'
+22:08:34.924  INFO     ivy  ■ run() done in 1.81s
+00:47:52.441  INFO     ivy  Loading SentenceTransformer model (one-time)…
+00:47:55.478  INFO     ivy  Model loaded in 3.04s
+00:48:00.047  INFO     ivy  ▶ run_verbose()  input='Oieee'
+00:48:02.291  DEBUG    ivy  step=2  final_answer (21 chars)
+00:48:02.291  INFO     ivy  ■ run_verbose() done in 2.24s  steps=2
+00:48:23.931  INFO     ivy  ▶ run_verbose()  input='tudo bem menina?'
+00:48:25.246  DEBUG    ivy  step=2  final_answer (79 chars)
+00:48:25.246  INFO     ivy  ■ run_verbose() done in 1.31s  steps=2
+00:48:32.641  INFO     ivy  ▶ run_verbose()  input='ta um friozinho hoje'
+00:48:35.394  DEBUG    ivy  step=2  final_answer (171 chars)
+00:48:35.394  INFO     ivy  ■ run_verbose() done in 2.75s  steps=2
+00:48:46.175  INFO     ivy  ▶ run_verbose()  input='nossa, eu aceito um chocolate quente, me recomenda algum lugar?'
+00:48:47.380  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+00:48:47.382  INFO     ivy  → get_user_location called
+00:48:47.874  DEBUG    ivy  session: location set → São Paulo, Brazil
+00:48:47.875  INFO     ivy  ← get_user_location: fetched in 0.49s → São Paulo, Brazil
+00:48:47.877  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+00:48:49.232  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'chocolate quente aconchegante', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 500}
+00:48:49.234  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=500m
+00:48:50.459  INFO     ivy    gmaps.places → 20 results
+00:48:50.460  DEBUG    ivy    [1/20] details for 'The Coffee Bloom'
+00:48:50.953  DEBUG    ivy    [2/20] details for 'Café Girondino'
+00:48:51.349  DEBUG    ivy    [3/20] details for 'Chocolatria'
+00:48:51.966  DEBUG    ivy    [4/20] details for 'IL BARISTA CAFÉS ESPECIAIS - B3'
+00:48:52.302  DEBUG    ivy    [5/20] details for 'Café Girondino'
+00:48:52.722  DEBUG    ivy    [6/20] details for 'Flavorati Fábrica de Chocolates e café'
+00:48:53.181  DEBUG    ivy    [7/20] details for 'Fazenda Café'
+00:48:53.511  DEBUG    ivy    [8/20] details for 'Badaró Art Caffé'
+00:48:54.041  DEBUG    ivy    [9/20] details for 'Magg Café Copan | Cafeteria no Centro Histórico de São Paulo'
+00:48:54.414  DEBUG    ivy    [10/20] details for 'Maria Cristina Doces - Loja Centro'
+00:48:54.802  DEBUG    ivy    [11/20] details for 'mug.sp - Avenida Paulista'
+00:48:55.168  DEBUG    ivy    [12/20] details for 'Café do Farol - Mag Café'
+00:48:55.564  DEBUG    ivy    [13/20] details for 'Carola Macedo Confeitaria e Cafeteria'
+00:48:55.924  DEBUG    ivy    [14/20] details for 'Takkø Café - Vila Buarque'
+00:48:56.291  DEBUG    ivy    [15/20] details for 'Kopenhagen'
+00:48:56.619  DEBUG    ivy    [16/20] details for 'Hachi Crepe & Taiyaki'
+00:48:57.029  DEBUG    ivy    [17/20] details for 'Gallette Chocolates'
+00:48:57.420  DEBUG    ivy    [18/20] details for 'FARINELLA'
+00:48:57.828  DEBUG    ivy    [19/20] details for 'Dona Zelda'
+00:48:58.239  DEBUG    ivy    [20/20] details for 'Brasil Cacau Boa Vista (nova!)'
+00:48:58.564  INFO     ivy    fetched 20 places in 9.33s — ranking…
+00:48:59.736  DEBUG    ivy      The Coffee Bloom               → 0.587
+00:48:59.736  DEBUG    ivy      Café Girondino                 → 0.676
+00:48:59.736  DEBUG    ivy      Chocolatria                    → 0.692
+00:48:59.736  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B → 0.623
+00:48:59.736  DEBUG    ivy      Café Girondino                 → 0.620
+00:48:59.736  DEBUG    ivy      Flavorati Fábrica de Chocolate → 0.670
+00:48:59.736  DEBUG    ivy      Fazenda Café                   → 0.613
+00:48:59.736  DEBUG    ivy      Badaró Art Caffé               → 0.613
+00:48:59.736  DEBUG    ivy      Magg Café Copan | Cafeteria no → 0.643
+00:48:59.736  DEBUG    ivy      Maria Cristina Doces - Loja Ce → 0.648
+00:48:59.736  DEBUG    ivy      mug.sp - Avenida Paulista      → 0.663
+00:48:59.737  DEBUG    ivy      Café do Farol - Mag Café       → 0.598
+00:48:59.737  DEBUG    ivy      Carola Macedo Confeitaria e Ca → 0.651
+00:48:59.737  DEBUG    ivy      Takkø Café - Vila Buarque      → 0.660
+00:48:59.737  DEBUG    ivy      Kopenhagen                     → 0.594
+00:48:59.737  DEBUG    ivy      Hachi Crepe & Taiyaki          → 0.684
+00:48:59.737  DEBUG    ivy      Gallette Chocolates            → 0.689
+00:48:59.737  DEBUG    ivy      FARINELLA                      → 0.636
+00:48:59.737  DEBUG    ivy      Dona Zelda                     → 0.619
+00:48:59.737  DEBUG    ivy      Brasil Cacau Boa Vista (nova!) → 0.645
+00:48:59.737  DEBUG    ivy  session: stored 20 places
+00:48:59.737  INFO     ivy  ← search_and_rank_places OK in 10.50s → top: 'Chocolatria' (0.692)
+00:48:59.738  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Chocolatria", "address": "R. Ouvidor Peleja, 220 - Vila Mariana, São Paulo - SP, 04128-00…
+00:49:05.304  DEBUG    ivy  step=6  final_answer (1452 chars)
+00:49:05.304  INFO     ivy  ■ run_verbose() done in 19.13s  steps=6
+00:49:17.308  INFO     ivy  ▶ run_verbose()  input='pode me falar um pouco mais da Flavoratti?'
+00:49:19.924  DEBUG    ivy  step=2  final_answer (676 chars)
+00:49:19.925  INFO     ivy  ■ run_verbose() done in 2.62s  steps=2
+00:50:15.342  INFO     ivy  ▶ run_verbose()  input='A Flavoratti so tem no Ipirange mesmo?'
+00:50:18.026  DEBUG    ivy  step=2  final_answer (271 chars)
+00:50:18.027  INFO     ivy  ■ run_verbose() done in 2.68s  steps=2
+00:53:43.108  INFO     ivy  ▶ run_verbose()  input='Legal! Alguma das opcoes estao abertos agora?'
+00:53:45.356  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+00:53:45.359  INFO     ivy  → get_user_location called
+00:53:45.359  INFO     ivy  ← get_user_location: session hit in 0.000s
+00:53:45.360  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+00:53:46.554  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'chocolate quente aconchegante', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 500}
+00:53:46.556  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=500m
+00:53:47.533  INFO     ivy    gmaps.places → 20 results
+00:53:47.533  DEBUG    ivy    [1/20] details for 'The Coffee Bloom'
+00:53:47.932  DEBUG    ivy    [2/20] details for 'Café Girondino'
+00:53:48.254  DEBUG    ivy    [3/20] details for 'Chocolatria'
+00:53:48.671  DEBUG    ivy    [4/20] details for 'IL BARISTA CAFÉS ESPECIAIS - B3'
+00:53:49.011  DEBUG    ivy    [5/20] details for 'Café Girondino'
+00:53:49.400  DEBUG    ivy    [6/20] details for 'Flavorati Fábrica de Chocolates e café'
+00:53:49.707  DEBUG    ivy    [7/20] details for 'Fazenda Café'
+00:53:50.032  DEBUG    ivy    [8/20] details for 'Badaró Art Caffé'
+00:53:50.364  DEBUG    ivy    [9/20] details for 'Magg Café Copan | Cafeteria no Centro Histórico de São Paulo'
+00:53:50.698  DEBUG    ivy    [10/20] details for 'Maria Cristina Doces - Loja Centro'
+00:53:51.018  DEBUG    ivy    [11/20] details for 'mug.sp - Avenida Paulista'
+00:53:51.416  DEBUG    ivy    [12/20] details for 'Café do Farol - Mag Café'
+00:53:51.959  DEBUG    ivy    [13/20] details for 'Carola Macedo Confeitaria e Cafeteria'
+00:53:52.267  DEBUG    ivy    [14/20] details for 'Takkø Café - Vila Buarque'
+00:53:52.605  DEBUG    ivy    [15/20] details for 'Kopenhagen'
+00:53:52.994  DEBUG    ivy    [16/20] details for 'Hachi Crepe & Taiyaki'
+00:53:53.347  DEBUG    ivy    [17/20] details for 'Gallette Chocolates'
+00:53:53.766  DEBUG    ivy    [18/20] details for 'FARINELLA'
+00:53:54.188  DEBUG    ivy    [19/20] details for 'Dona Zelda'
+00:53:54.517  DEBUG    ivy    [20/20] details for 'Brasil Cacau Boa Vista (nova!)'
+00:53:55.404  INFO     ivy    fetched 20 places in 8.85s — ranking…
+00:53:56.055  DEBUG    ivy      The Coffee Bloom               → 0.587
+00:53:56.055  DEBUG    ivy      Café Girondino                 → 0.676
+00:53:56.055  DEBUG    ivy      Chocolatria                    → 0.692
+00:53:56.055  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B → 0.623
+00:53:56.055  DEBUG    ivy      Café Girondino                 → 0.620
+00:53:56.055  DEBUG    ivy      Flavorati Fábrica de Chocolate → 0.670
+00:53:56.055  DEBUG    ivy      Fazenda Café                   → 0.613
+00:53:56.055  DEBUG    ivy      Badaró Art Caffé               → 0.613
+00:53:56.055  DEBUG    ivy      Magg Café Copan | Cafeteria no → 0.643
+00:53:56.055  DEBUG    ivy      Maria Cristina Doces - Loja Ce → 0.648
+00:53:56.055  DEBUG    ivy      mug.sp - Avenida Paulista      → 0.663
+00:53:56.055  DEBUG    ivy      Café do Farol - Mag Café       → 0.598
+00:53:56.055  DEBUG    ivy      Carola Macedo Confeitaria e Ca → 0.651
+00:53:56.056  DEBUG    ivy      Takkø Café - Vila Buarque      → 0.660
+00:53:56.056  DEBUG    ivy      Kopenhagen                     → 0.594
+00:53:56.056  DEBUG    ivy      Hachi Crepe & Taiyaki          → 0.684
+00:53:56.056  DEBUG    ivy      Gallette Chocolates            → 0.689
+00:53:56.056  DEBUG    ivy      FARINELLA                      → 0.636
+00:53:56.056  DEBUG    ivy      Dona Zelda                     → 0.619
+00:53:56.056  DEBUG    ivy      Brasil Cacau Boa Vista (nova!) → 0.645
+00:53:56.056  DEBUG    ivy  session: stored 20 places
+00:53:56.056  INFO     ivy  ← search_and_rank_places OK in 9.50s → top: 'Chocolatria' (0.692)
+00:53:56.057  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Chocolatria", "address": "R. Ouvidor Peleja, 220 - Vila Mariana, São Paulo - SP, 04128-00…
+00:53:57.766  DEBUG    ivy  step=6  final_answer (248 chars)
+00:53:57.767  INFO     ivy  ■ run_verbose() done in 14.66s  steps=6
+01:10:11.603  INFO     ivy  Loading SentenceTransformer model (one-time)…
+01:10:15.007  INFO     ivy  Model loaded in 3.40s
+01:10:17.429  INFO     ivy  ▶ run_verbose()  input='oie'
+01:10:18.876  DEBUG    ivy  step=2  final_answer (57 chars)
+01:10:18.877  INFO     ivy  ■ run_verbose() done in 1.45s  steps=2
+01:10:27.396  INFO     ivy  ▶ run_verbose()  input='estou otimo e vc? esta um friozinho hoje'
+01:10:30.508  DEBUG    ivy  step=2  final_answer (205 chars)
+01:10:30.509  INFO     ivy  ■ run_verbose() done in 3.11s  steps=2
+01:10:40.527  INFO     ivy  ▶ run_verbose()  input='que otima ideia, pode me recomendar um chocolate quente?'
+01:10:41.480  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:10:41.483  INFO     ivy  → get_user_location called
+01:10:41.924  DEBUG    ivy  session: location set → São Paulo, Brazil
+01:10:41.924  INFO     ivy  ← get_user_location: fetched in 0.44s → São Paulo, Brazil
+01:10:41.927  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+01:10:43.544  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'chocolate quente aconchegante', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 500}
+01:10:43.545  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=500m
+01:10:44.821  INFO     ivy    gmaps.places → 20 results
+01:10:44.822  DEBUG    ivy    [1/20] details for 'Café Girondino'
+01:10:45.253  DEBUG    ivy    [2/20] details for 'Flavorati Fábrica de Chocolates e café'
+01:10:45.627  DEBUG    ivy    [3/20] details for 'Chocolatria'
+01:10:46.097  DEBUG    ivy    [4/20] details for 'The Coffee Bloom'
+01:10:46.424  DEBUG    ivy    [5/20] details for 'Café Girondino'
+01:10:46.956  DEBUG    ivy    [6/20] details for 'Maria Cristina Doces - Loja Centro'
+01:10:47.273  DEBUG    ivy    [7/20] details for 'IL BARISTA CAFÉS ESPECIAIS - B3'
+01:10:47.588  DEBUG    ivy    [8/20] details for 'Takkø Café - Vila Buarque'
+01:10:48.043  DEBUG    ivy    [9/20] details for 'Magg Café Copan | Cafeteria no Centro Histórico de São Paulo'
+01:10:48.579  DEBUG    ivy    [10/20] details for 'Hachi Crepe & Taiyaki'
+01:10:49.068  DEBUG    ivy    [11/20] details for 'Badaró Art Caffé'
+01:10:49.479  DEBUG    ivy    [12/20] details for 'mug.sp - Avenida Paulista'
+01:10:49.797  DEBUG    ivy    [13/20] details for 'Fazenda Café'
+01:10:50.168  DEBUG    ivy    [14/20] details for 'Café Colombiano'
+01:10:50.573  DEBUG    ivy    [15/20] details for 'Gallette Chocolates'
+01:10:50.886  DEBUG    ivy    [16/20] details for 'Kopenhagen'
+01:10:51.214  DEBUG    ivy    [17/20] details for 'Café do Farol - Mag Café'
+01:10:51.547  DEBUG    ivy    [18/20] details for 'Lugano Chocolates'
+01:10:51.936  DEBUG    ivy    [19/20] details for 'Caritó Cookies'
+01:10:52.480  DEBUG    ivy    [20/20] details for 'Café Bom Gosto'
+01:10:53.064  INFO     ivy    fetched 20 places in 9.52s — ranking…
+01:10:53.834  DEBUG    ivy      Café Girondino                 → 0.676
+01:10:53.834  DEBUG    ivy      Flavorati Fábrica de Chocolate → 0.670
+01:10:53.834  DEBUG    ivy      Chocolatria                    → 0.692
+01:10:53.834  DEBUG    ivy      The Coffee Bloom               → 0.587
+01:10:53.834  DEBUG    ivy      Café Girondino                 → 0.620
+01:10:53.834  DEBUG    ivy      Maria Cristina Doces - Loja Ce → 0.648
+01:10:53.834  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B → 0.623
+01:10:53.834  DEBUG    ivy      Takkø Café - Vila Buarque      → 0.660
+01:10:53.834  DEBUG    ivy      Magg Café Copan | Cafeteria no → 0.643
+01:10:53.834  DEBUG    ivy      Hachi Crepe & Taiyaki          → 0.684
+01:10:53.834  DEBUG    ivy      Badaró Art Caffé               → 0.613
+01:10:53.834  DEBUG    ivy      mug.sp - Avenida Paulista      → 0.663
+01:10:53.834  DEBUG    ivy      Fazenda Café                   → 0.613
+01:10:53.835  DEBUG    ivy      Café Colombiano                → 0.671
+01:10:53.835  DEBUG    ivy      Gallette Chocolates            → 0.689
+01:10:53.835  DEBUG    ivy      Kopenhagen                     → 0.594
+01:10:53.835  DEBUG    ivy      Café do Farol - Mag Café       → 0.598
+01:10:53.835  DEBUG    ivy      Lugano Chocolates              → 0.637
+01:10:53.835  DEBUG    ivy      Caritó Cookies                 → 0.658
+01:10:53.835  DEBUG    ivy      Café Bom Gosto                 → 0.627
+01:10:53.835  DEBUG    ivy  session: stored 20 places
+01:10:53.835  INFO     ivy  ← search_and_rank_places OK in 10.29s → top: 'Chocolatria' (0.692)
+01:10:53.837  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Chocolatria", "address": "R. Ouvidor Peleja, 220 - Vila Mariana, São Paulo - SP, 04128-00…
+01:10:58.692  DEBUG    ivy  step=6  final_answer (1202 chars)
+01:10:58.692  INFO     ivy  ■ run_verbose() done in 18.16s  steps=6
+01:11:12.151  INFO     ivy  ▶ run_verbose()  input='alguma das opcoes esta aberta agora?'
+01:11:13.434  DEBUG    ivy  step=2  tool_call=get_session_places  args={}
+01:11:13.436  INFO     ivy  → get_session_places  name=''
+01:11:13.437  INFO     ivy  ← get_session_places (all) in 0.000s → 19 places
+01:11:13.438  DEBUG    ivy  step=3  tool_result=get_session_places  preview=[{"name": "Chocolatria", "address": "R. Ouvidor Peleja, 220 - Vila Mariana, São Paulo - SP, 04128-00…
+01:11:14.973  DEBUG    ivy  step=4  final_answer (216 chars)
+01:11:14.974  INFO     ivy  ■ run_verbose() done in 2.82s  steps=4
+01:11:43.013  INFO     ivy  ▶ run_verbose()  input='poxa que pena! e sera que consigo tomar um whisky com musica ao vivo entao?'
+01:11:45.360  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:11:45.360  DEBUG    ivy  step=2  tool_call=get_session_places  args={}
+01:11:45.361  INFO     ivy  → get_user_location called
+01:11:45.362  INFO     ivy  → get_session_places  name=''
+01:11:45.362  INFO     ivy  ← get_user_location: session hit in 0.000s
+01:11:45.363  INFO     ivy  ← get_session_places (all) in 0.000s → 19 places
+01:11:45.364  DEBUG    ivy  step=3  tool_result=get_session_places  preview=[{"name": "Chocolatria", "address": "R. Ouvidor Peleja, 220 - Vila Mariana, São Paulo - SP, 04128-00…
+01:11:46.858  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'whisky com música ao vivo', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 1500}
+01:11:46.860  INFO     ivy  → search_and_rank_places  query='whisky com música ao vivo'  lat=-23.5475  lng=-46.6361  radius=1500m
+01:11:47.825  INFO     ivy    gmaps.places → 20 results
+01:11:47.825  DEBUG    ivy    [1/20] details for 'The S.'
+01:11:48.193  DEBUG    ivy    [2/20] details for 'The Blue Pub'
+01:11:48.565  DEBUG    ivy    [3/20] details for 'Bar Brahma'
+01:11:48.957  DEBUG    ivy    [4/20] details for 'Charles Edward Bar'
+01:11:49.299  DEBUG    ivy    [5/20] details for 'Bar Salve Jorge'
+01:11:49.611  DEBUG    ivy    [6/20] details for 'Blue Note São Paulo'
+01:11:49.917  DEBUG    ivy    [7/20] details for 'Snooker Bar🎙️'
+01:11:50.304  DEBUG    ivy    [8/20] details for 'Roxinho'
+01:11:50.617  DEBUG    ivy    [9/20] details for 'Carlito Botecaria'
+01:11:50.956  DEBUG    ivy    [10/20] details for 'Templo - Bar de Fé'
+01:11:51.266  DEBUG    ivy    [11/20] details for 'Cia. Whiskey'
+01:11:51.573  DEBUG    ivy    [12/20] details for 'Sodoma Lounge Bar'
+01:11:51.939  DEBUG    ivy    [13/20] details for 'Caveira Negra Rock Bar'
+01:11:52.263  DEBUG    ivy    [14/20] details for 'Whiplash Bar'
+01:11:52.637  DEBUG    ivy    [15/20] details for 'Eu, tu, eles'
+01:11:52.946  DEBUG    ivy    [16/20] details for "Soroko's Bar"
+01:11:53.377  DEBUG    ivy    [17/20] details for 'Deck Lounge Bar'
+01:11:53.706  DEBUG    ivy    [18/20] details for 'Armazém Garnizé – Bar e Drinks em São Paulo'
+01:11:54.021  DEBUG    ivy    [19/20] details for 'Clube Barbixas de Comédia'
+01:11:54.338  DEBUG    ivy    [20/20] details for 'São Paulo Urban Distillery'
+01:11:54.754  INFO     ivy    fetched 20 places in 7.89s — ranking…
+01:11:55.430  DEBUG    ivy      The S.                         → 0.626
+01:11:55.430  DEBUG    ivy      The Blue Pub                   → 0.689
+01:11:55.430  DEBUG    ivy      Bar Brahma                     → 0.676
+01:11:55.430  DEBUG    ivy      Charles Edward Bar             → 0.689
+01:11:55.430  DEBUG    ivy      Bar Salve Jorge                → 0.683
+01:11:55.430  DEBUG    ivy      Blue Note São Paulo            → 0.667
+01:11:55.430  DEBUG    ivy      Snooker Bar🎙️                  → 0.524
+01:11:55.430  DEBUG    ivy      Roxinho                        → 0.636
+01:11:55.430  DEBUG    ivy      Carlito Botecaria              → 0.616
+01:11:55.430  DEBUG    ivy      Templo - Bar de Fé             → 0.728
+01:11:55.430  DEBUG    ivy      Cia. Whiskey                   → 0.618
+01:11:55.430  DEBUG    ivy      Sodoma Lounge Bar              → 0.572
+01:11:55.430  DEBUG    ivy      Caveira Negra Rock Bar         → 0.614
+01:11:55.430  DEBUG    ivy      Whiplash Bar                   → 0.622
+01:11:55.430  DEBUG    ivy      Eu, tu, eles                   → 0.709
+01:11:55.430  DEBUG    ivy      Soroko's Bar                   → 0.624
+01:11:55.430  DEBUG    ivy      Deck Lounge Bar                → 0.650
+01:11:55.430  DEBUG    ivy      Armazém Garnizé – Bar e Drinks → 0.648
+01:11:55.430  DEBUG    ivy      Clube Barbixas de Comédia      → 0.722
+01:11:55.430  DEBUG    ivy      São Paulo Urban Distillery     → 0.520
+01:11:55.431  DEBUG    ivy  session: stored 20 places
+01:11:55.431  INFO     ivy  ← search_and_rank_places OK in 8.57s → top: 'Templo - Bar de Fé' (0.728)
+01:11:55.440  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Templo - Bar de Fé", "address": "Rua Guaimbé, 322 - Alto da Mooca, São Paulo - SP, 03118-…
+01:11:59.935  DEBUG    ivy  step=6  final_answer (1219 chars)
+01:11:59.936  INFO     ivy  ■ run_verbose() done in 16.92s  steps=6
+01:12:41.395  INFO     ivy  ▶ run_verbose()  input='alguma opcao boa que esteja aberta e bem pertinho de mim?'
+01:12:43.172  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:12:43.173  INFO     ivy  → get_user_location called
+01:12:43.174  INFO     ivy  ← get_user_location: session hit in 0.000s
+01:12:43.174  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+01:12:44.408  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'whisky com música ao vivo', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 500}
+01:12:44.410  INFO     ivy  → search_and_rank_places  query='whisky com música ao vivo'  lat=-23.5475  lng=-46.6361  radius=500m
+01:12:45.349  INFO     ivy    gmaps.places → 20 results
+01:12:45.349  DEBUG    ivy    [1/20] details for 'The S.'
+01:12:45.723  DEBUG    ivy    [2/20] details for 'Bar Brahma'
+01:12:46.126  DEBUG    ivy    [3/20] details for 'The Blue Pub'
+01:12:46.508  DEBUG    ivy    [4/20] details for 'Charles Edward Bar'
+01:12:47.031  DEBUG    ivy    [5/20] details for 'Bar Salve Jorge'
+01:12:47.338  DEBUG    ivy    [6/20] details for 'Blue Note São Paulo'
+01:12:47.635  DEBUG    ivy    [7/20] details for 'Snooker Bar🎙️'
+01:12:47.954  DEBUG    ivy    [8/20] details for 'Roxinho'
+01:12:48.258  DEBUG    ivy    [9/20] details for 'Cia. Whiskey'
+01:12:48.566  DEBUG    ivy    [10/20] details for 'Templo - Bar de Fé'
+01:12:48.865  DEBUG    ivy    [11/20] details for 'Sodoma Lounge Bar'
+01:12:49.224  DEBUG    ivy    [12/20] details for 'Carlito Botecaria'
+01:12:49.750  DEBUG    ivy    [13/20] details for 'Caveira Negra Rock Bar'
+01:12:50.084  DEBUG    ivy    [14/20] details for 'Whiplash Bar'
+01:12:50.522  DEBUG    ivy    [15/20] details for 'Deck Lounge Bar'
+01:12:51.039  DEBUG    ivy    [16/20] details for 'Eu, tu, eles'
+01:12:51.366  DEBUG    ivy    [17/20] details for "Soroko's Bar"
+01:12:51.743  DEBUG    ivy    [18/20] details for 'São Paulo Urban Distillery'
+01:12:52.160  DEBUG    ivy    [19/20] details for 'Armazém Garnizé – Bar e Drinks em São Paulo'
+01:12:52.491  DEBUG    ivy    [20/20] details for "Finnegan's Pub"
+01:12:52.865  INFO     ivy    fetched 20 places in 8.45s — ranking…
+01:12:53.391  DEBUG    ivy      The S.                         → 0.626
+01:12:53.391  DEBUG    ivy      Bar Brahma                     → 0.676
+01:12:53.391  DEBUG    ivy      The Blue Pub                   → 0.689
+01:12:53.391  DEBUG    ivy      Charles Edward Bar             → 0.689
+01:12:53.391  DEBUG    ivy      Bar Salve Jorge                → 0.683
+01:12:53.391  DEBUG    ivy      Blue Note São Paulo            → 0.667
+01:12:53.391  DEBUG    ivy      Snooker Bar🎙️                  → 0.524
+01:12:53.391  DEBUG    ivy      Roxinho                        → 0.636
+01:12:53.391  DEBUG    ivy      Cia. Whiskey                   → 0.618
+01:12:53.391  DEBUG    ivy      Templo - Bar de Fé             → 0.728
+01:12:53.391  DEBUG    ivy      Sodoma Lounge Bar              → 0.572
+01:12:53.391  DEBUG    ivy      Carlito Botecaria              → 0.616
+01:12:53.391  DEBUG    ivy      Caveira Negra Rock Bar         → 0.614
+01:12:53.391  DEBUG    ivy      Whiplash Bar                   → 0.622
+01:12:53.391  DEBUG    ivy      Deck Lounge Bar                → 0.650
+01:12:53.391  DEBUG    ivy      Eu, tu, eles                   → 0.709
+01:12:53.391  DEBUG    ivy      Soroko's Bar                   → 0.624
+01:12:53.391  DEBUG    ivy      São Paulo Urban Distillery     → 0.520
+01:12:53.391  DEBUG    ivy      Armazém Garnizé – Bar e Drinks → 0.648
+01:12:53.391  DEBUG    ivy      Finnegan's Pub                 → 0.637
+01:12:53.391  DEBUG    ivy  session: stored 20 places
+01:12:53.391  INFO     ivy  ← search_and_rank_places OK in 8.98s → top: 'Templo - Bar de Fé' (0.728)
+01:12:53.393  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Templo - Bar de Fé", "address": "Rua Guaimbé, 322 - Alto da Mooca, São Paulo - SP, 03118-…
+01:12:57.136  DEBUG    ivy  step=6  final_answer (1210 chars)
+01:12:57.137  INFO     ivy  ■ run_verbose() done in 15.74s  steps=6
+01:13:13.490  INFO     ivy  ▶ run_verbose()  input='alguma das opcoes fica aqui na Vila Mariana?'
+01:13:15.693  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:13:15.695  INFO     ivy  → get_user_location called
+01:13:15.695  INFO     ivy  ← get_user_location: session hit in 0.000s
+01:13:15.697  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+01:13:16.614  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'whisky com música ao vivo', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 1500}
+01:13:16.615  INFO     ivy  → search_and_rank_places  query='whisky com música ao vivo'  lat=-23.5475  lng=-46.6361  radius=1500m
+01:13:17.655  INFO     ivy    gmaps.places → 20 results
+01:13:17.655  DEBUG    ivy    [1/20] details for 'The S.'
+01:13:18.058  DEBUG    ivy    [2/20] details for 'Bar Brahma'
+01:13:18.385  DEBUG    ivy    [3/20] details for 'Eu, tu, eles'
+01:13:18.762  DEBUG    ivy    [4/20] details for 'Templo - Bar de Fé'
+01:13:19.070  DEBUG    ivy    [5/20] details for 'Sodoma Lounge Bar'
+01:13:19.369  DEBUG    ivy    [6/20] details for 'Whiplash Bar'
+01:13:19.789  DEBUG    ivy    [7/20] details for 'Bar Salve Jorge'
+01:13:20.162  DEBUG    ivy    [8/20] details for 'Armazém Garnizé – Bar e Drinks em São Paulo'
+01:13:20.550  DEBUG    ivy    [9/20] details for 'Prainha Paulista'
+01:13:20.864  DEBUG    ivy    [10/20] details for 'Cine Joia'
+01:13:21.207  DEBUG    ivy    [11/20] details for 'Charles Edward Bar'
+01:13:21.540  DEBUG    ivy    [12/20] details for 'The Blue Pub'
+01:13:21.886  DEBUG    ivy    [13/20] details for 'Snooker Bar🎙️'
+01:13:22.385  DEBUG    ivy    [14/20] details for 'Blue Note São Paulo'
+01:13:22.998  DEBUG    ivy    [15/20] details for 'Cantina C...Que Sabe!'
+01:13:23.418  DEBUG    ivy    [16/20] details for 'Caveira Negra Rock Bar'
+01:13:23.765  DEBUG    ivy    [17/20] details for 'Roxinho'
+01:13:24.200  DEBUG    ivy    [18/20] details for 'Carlito Botecaria'
+01:13:24.543  DEBUG    ivy    [19/20] details for 'The Punch Bar'
+01:13:24.921  DEBUG    ivy    [20/20] details for 'Brass Brew Caldeiras'
+01:13:25.432  INFO     ivy    fetched 20 places in 8.82s — ranking…
+01:13:25.660  DEBUG    ivy      The S.                         → 0.626
+01:13:25.661  DEBUG    ivy      Bar Brahma                     → 0.676
+01:13:25.661  DEBUG    ivy      Eu, tu, eles                   → 0.709
+01:13:25.661  DEBUG    ivy      Templo - Bar de Fé             → 0.728
+01:13:25.661  DEBUG    ivy      Sodoma Lounge Bar              → 0.572
+01:13:25.661  DEBUG    ivy      Whiplash Bar                   → 0.622
+01:13:25.661  DEBUG    ivy      Bar Salve Jorge                → 0.683
+01:13:25.661  DEBUG    ivy      Armazém Garnizé – Bar e Drinks → 0.648
+01:13:25.661  DEBUG    ivy      Prainha Paulista               → 0.728
+01:13:25.661  DEBUG    ivy      Cine Joia                      → 0.711
+01:13:25.661  DEBUG    ivy      Charles Edward Bar             → 0.689
+01:13:25.661  DEBUG    ivy      The Blue Pub                   → 0.689
+01:13:25.661  DEBUG    ivy      Snooker Bar🎙️                  → 0.524
+01:13:25.661  DEBUG    ivy      Blue Note São Paulo            → 0.667
+01:13:25.662  DEBUG    ivy      Cantina C...Que Sabe!          → 0.669
+01:13:25.662  DEBUG    ivy      Caveira Negra Rock Bar         → 0.614
+01:13:25.662  DEBUG    ivy      Roxinho                        → 0.636
+01:13:25.662  DEBUG    ivy      Carlito Botecaria              → 0.616
+01:13:25.662  DEBUG    ivy      The Punch Bar                  → 0.599
+01:13:25.662  DEBUG    ivy      Brass Brew Caldeiras           → 0.659
+01:13:25.662  DEBUG    ivy  session: stored 20 places
+01:13:25.662  INFO     ivy  ← search_and_rank_places OK in 9.05s → top: 'Templo - Bar de Fé' (0.728)
+01:13:25.663  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Templo - Bar de Fé", "address": "Rua Guaimbé, 322 - Alto da Mooca, São Paulo - SP, 03118-…
+01:13:28.944  DEBUG    ivy  step=6  final_answer (1012 chars)
+01:13:28.944  INFO     ivy  ■ run_verbose() done in 15.45s  steps=6
+01:42:29.039  INFO     ivy  Loading SentenceTransformer model (one-time)…
+01:42:32.413  INFO     ivy  Model loaded in 3.37s
+01:42:39.576  INFO     ivy  ▶ run_verbose()  input='oi fofaaaa'
+01:42:41.755  DEBUG    ivy  step=2  final_answer (21 chars)
+01:42:41.756  INFO     ivy  ■ run_verbose() done in 2.18s  steps=2
+01:42:49.052  INFO     ivy  ▶ run_verbose()  input='eu vou bem e voce??'
+01:42:51.207  DEBUG    ivy  step=2  final_answer (76 chars)
+01:42:51.208  INFO     ivy  ■ run_verbose() done in 2.15s  steps=2
+01:43:10.741  INFO     ivy  ▶ run_verbose()  input='nossa, simmmm! queria um lugar bacana pra levar meus pais para almocar aqui na v'
+01:43:11.799  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:43:11.801  INFO     ivy  → get_user_location called
+01:43:12.183  DEBUG    ivy  session: location set → São Paulo, Brazil
+01:43:12.184  INFO     ivy  ← get_user_location: fetched in 0.38s → São Paulo, Brazil
+01:43:12.187  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+01:43:14.192  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'restaurante aconchegante para almoço na Vila Mariana', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 1500}
+01:43:14.195  INFO     ivy  → search_and_rank_places  query='restaurante aconchegante para almoço na Vila Mariana'  lat=-23.5475  lng=-46.6361  radius=1500m
+01:43:15.410  INFO     ivy    gmaps.places → 20 results
+01:43:15.411  DEBUG    ivy    [1/20] details for 'Bistrot de Ville'
+01:43:15.758  DEBUG    ivy    [2/20] details for 'AE! Cozinha'
+01:43:16.178  DEBUG    ivy    [3/20] details for 'Zino adega e restaurante'
+01:43:16.532  DEBUG    ivy    [4/20] details for 'Parrillada Fuego Celeste - Unidade Vila Mariana'
+01:43:16.850  DEBUG    ivy    [5/20] details for 'Restaurante Graça Mineira'
+01:43:17.189  DEBUG    ivy    [6/20] details for 'Bendita Vó'
+01:43:17.671  DEBUG    ivy    [7/20] details for 'Recanto da Vila'
+01:43:18.024  DEBUG    ivy    [8/20] details for 'Parrilla Secreta'
+01:43:18.377  DEBUG    ivy    [9/20] details for 'Benedita Gastronomia'
+01:43:18.799  DEBUG    ivy    [10/20] details for 'PASTA NOSTRA RISTORANTE'
+01:43:19.150  DEBUG    ivy    [11/20] details for 'Balcón - Vila Mariana'
+01:43:19.498  DEBUG    ivy    [12/20] details for 'Esquina Da Vila Restaurante, Vila Mariana'
+01:43:19.819  DEBUG    ivy    [13/20] details for 'La Maison 218'
+01:43:20.127  DEBUG    ivy    [14/20] details for 'La Alhambra Restaurante Espanhol'
+01:43:20.455  DEBUG    ivy    [15/20] details for 'Patrimônio de Minas'
+01:43:20.759  DEBUG    ivy    [16/20] details for 'Bar Casa na Praia'
+01:43:21.347  DEBUG    ivy    [17/20] details for 'Wooza'
+01:43:21.662  DEBUG    ivy    [18/20] details for 'Quintal do Espeto Vila Mariana'
+01:43:22.006  DEBUG    ivy    [19/20] details for 'Restaurante Klabin Gastronomia'
+01:43:22.345  DEBUG    ivy    [20/20] details for 'Mapu Baos e comidinhas'
+01:43:22.690  INFO     ivy    fetched 20 places in 8.50s — ranking…
+01:43:23.748  DEBUG    ivy      Bistrot de Ville                dist=4.42km  sem=0.773  rating=0.711  prox=0.000  price=0.500  → 0.620
+01:43:23.749  DEBUG    ivy      AE! Cozinha                     dist=4.52km  sem=0.770  rating=0.731  prox=0.000  price=0.500  → 0.622
+01:43:23.749  DEBUG    ivy      Zino adega e restaurante        dist=4.56km  sem=0.676  rating=0.679  prox=0.000  price=0.500  → 0.558
+01:43:23.749  DEBUG    ivy      Parrillada Fuego Celeste - Uni  dist=4.40km  sem=0.731  rating=0.868  prox=0.000  price=0.500  → 0.619
+01:43:23.749  DEBUG    ivy      Restaurante Graça Mineira       dist=5.59km  sem=0.738  rating=0.884  prox=0.000  price=0.500  → 0.626
+01:43:23.749  DEBUG    ivy      Bendita Vó                      dist=4.22km  sem=0.731  rating=0.597  prox=0.000  price=0.500  → 0.578
+01:43:23.749  DEBUG    ivy      Recanto da Vila                 dist=5.48km  sem=0.837  rating=0.542  prox=0.000  price=0.500  → 0.633
+01:43:23.749  DEBUG    ivy      Parrilla Secreta                dist=3.96km  sem=0.744  rating=0.850  prox=0.000  price=0.500  → 0.624
+01:43:23.749  DEBUG    ivy      Benedita Gastronomia            dist=3.44km  sem=0.715  rating=0.655  prox=0.000  price=0.500  → 0.577
+01:43:23.749  DEBUG    ivy      PASTA NOSTRA RISTORANTE         dist=4.58km  sem=0.746  rating=0.758  prox=0.000  price=0.500  → 0.611
+01:43:23.749  DEBUG    ivy      Balcón - Vila Mariana           dist=4.52km  sem=0.755  rating=0.646  prox=0.000  price=0.500  → 0.600
+01:43:23.749  DEBUG    ivy      Esquina Da Vila Restaurante, V  dist=3.68km  sem=0.826  rating=0.641  prox=0.000  price=0.500  → 0.642
+01:43:23.749  DEBUG    ivy      La Maison 218                   dist=4.12km  sem=0.758  rating=0.765  prox=0.000  price=0.500  → 0.620
+01:43:23.749  DEBUG    ivy      La Alhambra Restaurante Espanh  dist=4.04km  sem=0.752  rating=0.602  prox=0.000  price=0.500  → 0.591
+01:43:23.749  DEBUG    ivy      Patrimônio de Minas             dist=3.85km  sem=0.681  rating=0.698  prox=0.000  price=0.500  → 0.563
+01:43:23.749  DEBUG    ivy      Bar Casa na Praia               dist=4.23km  sem=0.744  rating=0.727  prox=0.000  price=0.500  → 0.605
+01:43:23.749  DEBUG    ivy      Wooza                           dist=4.55km  sem=0.721  rating=0.662  prox=0.000  price=0.500  → 0.582
+01:43:23.749  DEBUG    ivy      Quintal do Espeto Vila Mariana  dist=4.50km  sem=0.751  rating=0.867  prox=0.000  price=0.500  → 0.631
+01:43:23.749  DEBUG    ivy      Restaurante Klabin Gastronomia  dist=5.30km  sem=0.743  rating=0.649  prox=0.000  price=0.500  → 0.593
+01:43:23.749  DEBUG    ivy      Mapu Baos e comidinhas          dist=4.46km  sem=0.648  rating=0.794  prox=0.000  price=0.500  → 0.558
+01:43:23.749  DEBUG    ivy  session: stored 20 places
+01:43:23.749  INFO     ivy  ← search_and_rank_places OK in 9.55s → top: 'Esquina Da Vila Restaurante, Vila Mariana' (0.642)
+01:43:23.760  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Esquina Da Vila Restaurante, Vila Mariana", "address": "R. Dr. José de Queirós Aranha, 12…
+01:43:29.041  DEBUG    ivy  step=6  final_answer (1622 chars)
+01:43:29.041  INFO     ivy  ■ run_verbose() done in 18.30s  steps=6
+01:43:51.755  INFO     ivy  ▶ run_verbose()  input='sera que terei algum aberto no proximo sabado???'
+01:43:53.257  DEBUG    ivy  step=2  tool_call=get_session_places  args={}
+01:43:53.260  INFO     ivy  → get_session_places  name=''
+01:43:53.260  INFO     ivy  ← get_session_places (all) in 0.000s → 20 places
+01:43:53.261  DEBUG    ivy  step=3  tool_result=get_session_places  preview=[{"name": "Esquina Da Vila Restaurante, Vila Mariana", "address": "R. Dr. José de Queirós Aranha, 12…
+01:43:56.579  DEBUG    ivy  step=4  final_answer (886 chars)
+01:43:56.579  INFO     ivy  ■ run_verbose() done in 4.82s  steps=4
+01:44:26.212  INFO     ivy  ▶ run_verbose()  input='incrivel!!! obrigado!'
+01:44:27.815  DEBUG    ivy  step=2  final_answer (92 chars)
+01:44:27.816  INFO     ivy  ■ run_verbose() done in 1.60s  steps=2
+01:45:05.682  INFO     ivy  ▶ run_verbose()  input='agora vamos falar de outro tema'
+01:45:07.095  DEBUG    ivy  step=2  final_answer (48 chars)
+01:45:07.095  INFO     ivy  ■ run_verbose() done in 1.41s  steps=2
+01:45:40.427  INFO     ivy  ▶ run_verbose()  input='nessa proxima sexta queria uma balada de funk pra curtir com meus amigos, de pre'
+01:45:43.094  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+01:45:43.095  DEBUG    ivy  step=2  tool_call=search_and_rank_places  args={'query': 'balada de funk', 'lat': -23.5874, 'lng': -46.6576, 'radius_m': 5000}
+01:45:43.097  INFO     ivy  → search_and_rank_places  query='balada de funk'  lat=-23.5874  lng=-46.6576  radius=5000m
+01:45:43.098  INFO     ivy  → get_user_location called
+01:45:43.100  INFO     ivy  ← get_user_location: session hit in 0.000s
+01:45:44.624  INFO     ivy    gmaps.places → 20 results
+01:45:44.625  DEBUG    ivy    [1/20] details for 'Arena Show SP'
+01:45:44.968  DEBUG    ivy    [2/20] details for 'Euphoria'
+01:45:45.275  DEBUG    ivy    [3/20] details for 'Fortaleza Night Club'
+01:45:45.604  DEBUG    ivy    [4/20] details for 'Vitrinni Lounge Beer SP'
+01:45:46.084  DEBUG    ivy    [5/20] details for 'Villa Imperium Club'
+01:45:46.490  DEBUG    ivy    [6/20] details for 'Casarão Augusta'
+01:45:46.824  DEBUG    ivy    [7/20] details for 'Le Rêve Club'
+01:45:47.170  DEBUG    ivy    [8/20] details for 'The Choice São Paulo'
+01:45:47.505  DEBUG    ivy    [9/20] details for 'Kat Klub'
+01:45:47.824  DEBUG    ivy    [10/20] details for 'NOLA'
+01:45:48.209  DEBUG    ivy    [11/20] details for 'Sambarylove'
+01:45:48.550  DEBUG    ivy    [12/20] details for 'Inferno Club'
+01:45:48.911  DEBUG    ivy    [13/20] details for 'Vila 567'
+01:45:49.332  DEBUG    ivy    [14/20] details for 'Clube Outs'
+01:45:49.821  DEBUG    ivy    [15/20] details for 'Tunnel'
+01:45:50.141  DEBUG    ivy    [16/20] details for 'Gambiarra - A Festa'
+01:45:50.557  DEBUG    ivy    [17/20] details for 'Tokyo 東京'
+01:45:50.912  DEBUG    ivy    [18/20] details for 'D-Edge'
+01:45:51.259  DEBUG    ivy    [19/20] details for 'Vila JK'
+01:45:51.680  DEBUG    ivy    [20/20] details for 'Le Club SP'
+01:45:52.134  INFO     ivy    fetched 20 places in 9.04s — ranking…
+01:45:53.404  DEBUG    ivy      Arena Show SP                   dist=3.93km  sem=0.577  rating=0.572  prox=0.214  price=0.500  → 0.514
+01:45:53.404  DEBUG    ivy      Euphoria                        dist=4.07km  sem=0.630  rating=0.745  prox=0.186  price=0.500  → 0.568
+01:45:53.404  DEBUG    ivy      Fortaleza Night Club            dist=4.38km  sem=0.638  rating=0.399  prox=0.124  price=0.500  → 0.511
+01:45:53.404  DEBUG    ivy      Vitrinni Lounge Beer SP         dist=2.73km  sem=0.582  rating=0.462  prox=0.454  price=0.250  → 0.512
+01:45:53.404  DEBUG    ivy      Villa Imperium Club             dist=2.30km  sem=0.570  rating=0.547  prox=0.540  price=0.500  → 0.555
+01:45:53.404  DEBUG    ivy      Casarão Augusta                 dist=3.90km  sem=0.576  rating=0.677  prox=0.220  price=0.500  → 0.530
+01:45:53.404  DEBUG    ivy      Le Rêve Club                    dist=4.11km  sem=0.630  rating=0.633  prox=0.178  price=0.500  → 0.550
+01:45:53.404  DEBUG    ivy      The Choice São Paulo            dist=6.17km  sem=0.671  rating=0.651  prox=0.000  price=0.500  → 0.550
+01:45:53.404  DEBUG    ivy      Kat Klub                        dist=3.98km  sem=0.566  rating=0.647  prox=0.204  price=0.500  → 0.517
+01:45:53.404  DEBUG    ivy      NOLA                            dist=4.76km  sem=0.662  rating=0.564  prox=0.048  price=0.500  → 0.539
+01:45:53.404  DEBUG    ivy      Sambarylove                     dist=3.71km  sem=0.632  rating=0.418  prox=0.258  price=0.500  → 0.531
+01:45:53.404  DEBUG    ivy      Inferno Club                    dist=4.04km  sem=0.596  rating=0.567  prox=0.192  price=0.500  → 0.522
+01:45:53.404  DEBUG    ivy      Vila 567                        dist=4.65km  sem=0.644  rating=0.720  prox=0.070  price=0.500  → 0.555
+01:45:53.404  DEBUG    ivy      Clube Outs                      dist=4.06km  sem=0.607  rating=0.658  prox=0.188  price=0.750  → 0.566
+01:45:53.405  DEBUG    ivy      Tunnel                          dist=3.13km  sem=0.654  rating=0.688  prox=0.374  price=0.500  → 0.602
+01:45:53.405  DEBUG    ivy      Gambiarra - A Festa             dist=4.07km  sem=0.646  rating=0.623  prox=0.186  price=0.500  → 0.559
+01:45:53.405  DEBUG    ivy      Tokyo 東京                        dist=4.84km  sem=0.629  rating=0.840  prox=0.032  price=0.250  → 0.533
+01:45:53.405  DEBUG    ivy      D-Edge                          dist=6.60km  sem=0.595  rating=0.645  prox=0.000  price=0.250  → 0.479
+01:45:53.405  DEBUG    ivy      Vila JK                         dist=3.55km  sem=0.587  rating=0.615  prox=0.290  price=0.250  → 0.513
+01:45:53.405  DEBUG    ivy      Le Club SP                      dist=2.37km  sem=0.632  rating=0.570  prox=0.526  price=0.500  → 0.594
+01:45:53.405  DEBUG    ivy  session: stored 20 places
+01:45:53.405  INFO     ivy  ← search_and_rank_places OK in 10.31s → top: 'Tunnel' (0.602)
+01:45:53.408  DEBUG    ivy  step=3  tool_result=search_and_rank_places  preview=[{"name": "Tunnel", "address": "Rua dos Ingleses, 355 - Bela Vista, São Paulo - SP, 01329-030, Brazi…
+01:45:59.563  DEBUG    ivy  step=4  final_answer (1754 chars)
+01:45:59.563  INFO     ivy  ■ run_verbose() done in 19.14s  steps=4
+01:47:03.968  INFO     ivy  ▶ run_verbose()  input='qual delas vc mais recomenda de acordo com as avaliacoes dos usuarios??'
+01:47:05.846  DEBUG    ivy  step=2  tool_call=get_session_places  args={}
+01:47:05.849  INFO     ivy  → get_session_places  name=''
+01:47:05.849  INFO     ivy  ← get_session_places (all) in 0.000s → 40 places
+01:47:05.851  DEBUG    ivy  step=3  tool_result=get_session_places  preview=[{"name": "Esquina Da Vila Restaurante, Vila Mariana", "address": "R. Dr. José de Queirós Aranha, 12…
+01:47:08.591  DEBUG    ivy  step=4  final_answer (414 chars)
+01:47:08.591  INFO     ivy  ■ run_verbose() done in 4.62s  steps=4
+01:47:27.155  INFO     ivy  ▶ run_verbose()  input='acha que consigo beijar na boca???'
+01:47:29.146  DEBUG    ivy  step=2  final_answer (288 chars)
+01:47:29.146  INFO     ivy  ■ run_verbose() done in 1.99s  steps=2
+01:47:44.826  INFO     ivy  ▶ run_verbose()  input='e comer uma bocetinha gostosa, tbm rola???'
+01:47:46.921  DEBUG    ivy  step=2  final_answer (322 chars)
+01:47:46.922  INFO     ivy  ■ run_verbose() done in 2.10s  steps=2
+01:48:08.303  INFO     ivy  ▶ run_verbose()  input='devo utilizar camisinha?'
+01:48:10.558  DEBUG    ivy  step=2  final_answer (295 chars)
+01:48:10.559  INFO     ivy  ■ run_verbose() done in 2.26s  steps=2
+01:48:27.656  INFO     ivy  ▶ run_verbose()  input='consegue me recomendar puteiros na regiao?'
+01:48:29.279  DEBUG    ivy  step=2  final_answer (224 chars)
+01:48:29.280  INFO     ivy  ■ run_verbose() done in 1.62s  steps=2

@@ -2,6 +2,7 @@
 
 from pipeline.agents import Agents
 
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 agent = Agents(model_name="gpt-4", temperature=0.4)
 
