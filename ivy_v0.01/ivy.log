@@ -726,3 +726,105 @@
 01:48:27.656  INFO     ivy  ▶ run_verbose()  input='consegue me recomendar puteiros na regiao?'
 01:48:29.279  DEBUG    ivy  step=2  final_answer (224 chars)
 01:48:29.280  INFO     ivy  ■ run_verbose() done in 1.62s  steps=2
+22:48:41.584  INFO     ivy  Loading SentenceTransformer model
+22:48:44.122  INFO     ivy  Model loaded in 2.54s
+22:48:50.894  INFO     ivy  run_verbose()  input='faaaala ivy'
+22:48:53.692  DEBUG    ivy  step=2  final_answer (86 chars)
+22:48:53.692  INFO     ivy  run_verbose() done in 2.80s  steps=2
+22:49:02.893  INFO     ivy  run_verbose()  input='caralho, to com puuuuta fome!'
+22:49:05.451  DEBUG    ivy  step=2  final_answer (124 chars)
+22:49:05.451  INFO     ivy  run_verbose() done in 2.56s  steps=2
+22:49:31.313  INFO     ivy  run_verbose()  input='queria comer um hamburguer bem gordo com batata frita e coca cola, mas quero que'
+22:49:33.307  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+22:49:33.310  INFO     ivy  → get_user_location called
+22:49:33.653  DEBUG    ivy  session: location set → São Paulo, Brazil
+22:49:33.654  INFO     ivy  ← get_user_location: fetched in 0.34s → São Paulo, Brazil
+22:49:33.657  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+22:49:34.533  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'hamburgueria com entrega rápida', 'lat': -23.5475, 'lng': -46.6361, 'radius_m': 1500}
+22:49:34.535  INFO     ivy  → search_and_rank_places  query='hamburgueria com entrega rápida'  lat=-23.5475  lng=-46.6361  radius=1500m
+22:49:34.536  INFO     ivy  googlemaps.Client initialised
+22:49:35.436  INFO     ivy    gmaps.places → 20 results
+22:49:35.437  DEBUG    ivy    fetching details for 20 places (concurrent, max 5 workers)…
+22:49:37.094  INFO     ivy    fetched 20 places in 2.56s — ranking…
+22:49:37.814  DEBUG    ivy      Lado Burger - Hamburgueria Art  dist=1.33km  sem=0.767  rating=0.630  prox=0.113  price=0.500  → 0.622
+22:49:37.814  DEBUG    ivy      Hamburgueria Rap Burguer na Co  dist=1.62km  sem=0.737  rating=0.880  prox=0.000  price=0.500  → 0.624
+22:49:37.814  DEBUG    ivy      California Burger               dist=0.73km  sem=0.649  rating=0.745  prox=0.513  price=0.500  → 0.628
+22:49:37.814  DEBUG    ivy      Hamburgueria Bullguer           dist=0.93km  sem=0.769  rating=0.748  prox=0.380  price=0.500  → 0.680
+22:49:37.814  DEBUG    ivy      Holy Burger                     dist=1.31km  sem=0.682  rating=0.843  prox=0.127  price=0.500  → 0.605
+22:49:37.814  DEBUG    ivy      N! Burger - Bela Vista          dist=0.86km  sem=0.693  rating=0.593  prox=0.427  price=0.500  → 0.619
+22:49:37.814  DEBUG    ivy      SAMPA SMASH                     dist=1.87km  sem=0.646  rating=0.553  prox=0.000  price=0.500  → 0.521
+22:49:37.814  DEBUG    ivy      Do Zé Burguer                   dist=2.17km  sem=0.676  rating=0.497  prox=0.000  price=0.500  → 0.530
+22:49:37.814  DEBUG    ivy      Brothers Burguers Centro        dist=0.61km  sem=0.768  rating=0.151  prox=0.593  price=0.500  → 0.622
+22:49:37.814  DEBUG    ivy      Hamburgueria do Sujinho         dist=2.55km  sem=0.774  rating=0.894  prox=0.000  price=0.500  → 0.649
+22:49:37.814  DEBUG    ivy      Paulista Burger                 dist=2.51km  sem=0.692  rating=0.832  prox=0.000  price=0.500  → 0.590
+22:49:37.814  DEBUG    ivy      Genial smash burger             dist=1.45km  sem=0.730  rating=0.215  prox=0.033  price=0.500  → 0.525
+22:49:37.814  DEBUG    ivy      Hamburg Hamburgueria Artesanal  dist=1.60km  sem=0.805  rating=0.641  prox=0.000  price=0.500  → 0.629
+22:49:37.814  DEBUG    ivy      Big Kahuna Burger               dist=3.52km  sem=0.642  rating=0.920  prox=0.000  price=0.500  → 0.573
+22:49:37.814  DEBUG    ivy      Sloop Burger                    dist=2.32km  sem=0.689  rating=0.709  prox=0.000  price=0.500  → 0.570
+22:49:37.814  DEBUG    ivy      Bispo Hamburgueria - Delivery   dist=2.39km  sem=0.766  rating=0.599  prox=0.000  price=0.500  → 0.599
+22:49:37.814  DEBUG    ivy      Burdog                          dist=3.28km  sem=0.670  rating=0.812  prox=0.000  price=0.500  → 0.574
+22:49:37.814  DEBUG    ivy      Zé do Hamburger                 dist=3.53km  sem=0.655  rating=0.896  prox=0.000  price=0.250  → 0.552
+22:49:37.814  DEBUG    ivy      Hamburgueria Itu                dist=1.44km  sem=0.756  rating=0.301  prox=0.040  price=0.500  → 0.555
+22:49:37.814  DEBUG    ivy      Arizona Bar e Lanches - 24 hor  dist=1.00km  sem=0.628  rating=0.597  prox=0.333  price=0.500  → 0.566
+22:49:37.815  DEBUG    ivy  session: stored 20 places
+22:49:37.815  INFO     ivy  ← search_and_rank_places OK in 3.28s → top: 'Hamburgueria Bullguer' (0.680)
+22:49:37.817  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Hamburgueria Bullguer", "address": "Av. Ipiranga, 197 - República, São Paulo - SP, 01039-...
+22:49:41.395  DEBUG    ivy  step=6  final_answer (1350 chars)
+22:49:41.395  INFO     ivy  run_verbose() done in 10.08s  steps=6
+22:49:57.227  INFO     ivy  run_verbose()  input='qual deles e o mais perto de mim?'
+22:49:58.186  DEBUG    ivy  step=2  tool_call=get_user_location  args={}
+22:49:58.187  INFO     ivy  → get_user_location called
+22:49:58.187  INFO     ivy  ← get_user_location: session hit in 0.000s
+22:49:58.188  DEBUG    ivy  step=3  tool_result=get_user_location  preview={"lat": -23.5475, "lng": -46.6361, "city": "S\u00e3o Paulo", "country": "Brazil"}
+22:49:58.741  DEBUG    ivy  step=4  tool_call=get_session_places  args={}
+22:49:58.742  INFO     ivy  → get_session_places  name=''
+22:49:58.743  INFO     ivy  ← get_session_places (all) in 0.000s → 20 places
+22:49:58.744  DEBUG    ivy  step=5  tool_result=get_session_places  preview=[{"name": "Hamburgueria Bullguer", "address": "Av. Ipiranga, 197 - República, São Paulo - SP, 01039-...
+22:50:01.869  DEBUG    ivy  step=6  final_answer (348 chars)
+22:50:01.870  INFO     ivy  run_verbose() done in 4.64s  steps=6
+22:50:16.407  INFO     ivy  run_verbose()  input='ta aberta agora??'
+22:50:17.683  DEBUG    ivy  step=2  tool_call=get_session_places  args={'name': 'Brothers Burguers Centro'}
+22:50:17.686  INFO     ivy  → get_session_places  name='Brothers Burguers Centro'
+22:50:17.686  DEBUG    ivy  session: place hit → 'Brothers Burguers Centro'
+22:50:17.686  INFO     ivy  ← get_session_places (one) in 0.000s → 'Brothers Burguers Centro'
+22:50:17.686  DEBUG    ivy  step=3  tool_result=get_session_places  preview={"place_id": "ChIJySl0gyBZzpQR4XMwdMiJMSI", "name": "Brothers Burguers Centro", "address": "R. Brg. ...
+22:50:19.484  DEBUG    ivy  step=4  final_answer (201 chars)
+22:50:19.485  INFO     ivy  run_verbose() done in 3.08s  steps=4
+22:50:48.531  INFO     ivy  run_verbose()  input='nao tem nenhuma delas na vila mariana? O centro historico e meio longe de mim'
+22:50:49.285  DEBUG    ivy  step=2  tool_call=get_session_places  args={}
+22:50:49.287  INFO     ivy  → get_session_places  name=''
+22:50:49.288  INFO     ivy  ← get_session_places (all) in 0.000s → 20 places
+22:50:49.289  DEBUG    ivy  step=3  tool_result=get_session_places  preview=[{"name": "Hamburgueria Bullguer", "address": "Av. Ipiranga, 197 - República, São Paulo - SP, 01039-...
+22:50:50.206  DEBUG    ivy  step=4  tool_call=search_and_rank_places  args={'query': 'hamburgueria na Vila Mariana', 'lat': -23.55052, 'lng': -46.633308}
+22:50:50.208  INFO     ivy  → search_and_rank_places  query='hamburgueria na Vila Mariana'  lat=-23.5505  lng=-46.6333  radius=500m
+22:50:50.751  INFO     ivy    gmaps.places → 20 results
+22:50:50.752  DEBUG    ivy    fetching details for 20 places (concurrent, max 5 workers)…
+22:50:52.210  INFO     ivy    fetched 20 places in 2.00s — ranking…
+22:50:53.321  DEBUG    ivy      Bom Beef Burgers Vila Mariana   dist=4.28km  sem=0.783  rating=0.874  prox=0.000  price=0.500  → 0.651
+22:50:53.321  DEBUG    ivy      Quebrada Burger - Vila Mariana  dist=4.09km  sem=0.759  rating=0.477  prox=0.000  price=0.500  → 0.577
+22:50:53.321  DEBUG    ivy      Mr. Mill's Hamburgueria         dist=5.81km  sem=0.785  rating=0.792  prox=0.000  price=0.500  → 0.639
+22:50:53.321  DEBUG    ivy      La Brasa - Vila Mariana         dist=5.22km  sem=0.749  rating=0.725  prox=0.000  price=0.500  → 0.608
+22:50:53.321  DEBUG    ivy      Prime Dog                       dist=3.30km  sem=0.670  rating=0.876  prox=0.000  price=0.500  → 0.584
+22:50:53.321  DEBUG    ivy      N! Burger - Vila Mariana        dist=6.44km  sem=0.763  rating=0.612  prox=0.000  price=0.500  → 0.600
+22:50:53.321  DEBUG    ivy      Cão Véio - Unidade Vila Marian  dist=4.00km  sem=0.775  rating=0.712  prox=0.000  price=0.500  → 0.622
+22:50:53.321  DEBUG    ivy      Jazz Restô e Burgers            dist=3.41km  sem=0.650  rating=0.829  prox=0.000  price=0.500  → 0.564
+22:50:53.321  DEBUG    ivy      Charada Burguer Vila Mariana    dist=3.32km  sem=0.804  rating=0.689  prox=0.000  price=0.500  → 0.636
+22:50:53.321  DEBUG    ivy      Osnir Hamburger Paraiso         dist=3.94km  sem=0.707  rating=0.603  prox=0.000  price=0.500  → 0.565
+22:50:53.321  DEBUG    ivy      Eaiburguer - Vila Mariana/SP    dist=3.42km  sem=0.719  rating=0.429  prox=0.000  price=0.500  → 0.546
+22:50:53.321  DEBUG    ivy      Come On Burger                  dist=4.46km  sem=0.660  rating=0.697  prox=0.000  price=0.500  → 0.550
+22:50:53.321  DEBUG    ivy      Misa Lanche                     dist=3.32km  sem=0.751  rating=0.705  prox=0.000  price=0.750  → 0.631
+22:50:53.321  DEBUG    ivy      Janela Bar Vila Mariana         dist=4.46km  sem=0.766  rating=0.464  prox=0.000  price=0.500  → 0.579
+22:50:53.321  DEBUG    ivy      Madero Burger - Vila Mariana    dist=3.80km  sem=0.681  rating=0.464  prox=0.000  price=0.250  → 0.503
+22:50:53.321  DEBUG    ivy      Fanis Burguer                   dist=3.98km  sem=0.670  rating=0.542  prox=0.000  price=0.500  → 0.533
+22:50:53.322  DEBUG    ivy      Hamburgueria Bullguer           dist=5.46km  sem=0.780  rating=0.741  prox=0.000  price=0.500  → 0.629
+22:50:53.322  DEBUG    ivy      Charles Smash Burger            dist=4.06km  sem=0.658  rating=0.594  prox=0.000  price=0.500  → 0.534
+22:50:53.322  DEBUG    ivy      Le Burgado                      dist=3.76km  sem=0.728  rating=0.631  prox=0.000  price=0.500  → 0.581
+22:50:53.322  DEBUG    ivy      SendYouWishes                   dist=4.24km  sem=0.688  rating=0.519  prox=0.000  price=0.750  → 0.566
+22:50:53.322  DEBUG    ivy  session: stored 20 places
+22:50:53.322  INFO     ivy  ← search_and_rank_places OK in 3.11s → top: 'Bom Beef Burgers Vila Mariana' (0.651)
+22:50:53.325  DEBUG    ivy  step=5  tool_result=search_and_rank_places  preview=[{"name": "Bom Beef Burgers Vila Mariana", "address": "R. Joaquim Távora, 1279 - Vila Mariana, São P...
+22:50:57.588  DEBUG    ivy  step=6  final_answer (1499 chars)
+22:50:57.590  INFO     ivy  run_verbose() done in 9.06s  steps=6
+22:51:42.358  INFO     ivy  run_verbose()  input='Como faco pra pedir um Bullger? Tenho o telefone ou insta deles?'
+22:51:44.276  DEBUG    ivy  step=2  final_answer (358 chars)
+22:51:44.277  INFO     ivy  run_verbose() done in 1.92s  steps=2
