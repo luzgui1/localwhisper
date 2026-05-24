@@ -16,7 +16,7 @@ from tools import session
 app = FastAPI(
     title="LocalWhisper API",
     description="Urban leisure recommendations powered by Ivy.",
-    version="0.0.1",
+    version="0.1.0",
 )
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_KEY")
@@ -35,6 +35,25 @@ async def send_telegram_message(chat_id: int, text: str) -> None:
         await client.post(url, json={"chat_id": chat_id, "text": text})
 
 
+# ── Shared agent runner ───────────────────────────────────────────────────────
+
+async def _run_agent(session_id: str, user_text: str) -> str:
+    """
+    Set the active session, load history, run the agent, save history.
+    Used by both /chat and /webhook so the logic lives in one place.
+    """
+    session.set_active(session_id)
+    history = session.get_history()
+
+    loop  = asyncio.get_event_loop()
+    reply = await loop.run_in_executor(None, agent_run, user_text, history)
+
+    session.append_to_history("user",      user_text)
+    session.append_to_history("assistant", reply)
+
+    return reply
+
+
 # ── Health check ──────────────────────────────────────────────────────────────
 
 @app.get("/health")
@@ -46,15 +65,7 @@ def health():
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
-    session.set_active(req.session_id)
-    history = session.get_history()
-
-    loop = asyncio.get_event_loop()
-    reply = await loop.run_in_executor(None, agent_run, req.message, history)
-
-    session.append_to_history("user",      req.message)
-    session.append_to_history("assistant", reply)
-
+    reply = await _run_agent(req.session_id, req.message)
     return ChatResponse(reply=reply, session_id=req.session_id)
 
 
@@ -63,29 +74,40 @@ async def chat(req: ChatRequest):
 @app.post("/webhook")
 async def webhook(update: TelegramUpdate):
     """
-    Telegram calls this endpoint every time a user sends a message to the bot.
-    We must return 200 OK — Telegram ignores the response body.
-    The actual reply goes back via send_telegram_message().
+    Telegram calls this endpoint every time a user sends a message.
+    Two message types are handled — text and location — both go through
+    the agent so Ivy always responds naturally with full context.
     """
-    # Ignore updates that have no text message (photos, stickers, etc.)
-    if not update.message or not update.message.text:
+    if not update.message:
         return {"ok": True}
 
     chat_id    = update.message.chat.id
-    user_text  = update.message.text
-    session_id = str(chat_id)   # chat_id is an int, session_id is a string
+    session_id = str(chat_id)
 
-    # Same logic as /chat — just a different source of input
-    session.set_active(session_id)
-    history = session.get_history()
+    # ── GPS location shared via Telegram attachment button ────────────────────
+    # Store the real coordinates in session, then pass a synthetic message to
+    # the agent. It has the conversation history so it knows what the user
+    # was trying to do — it responds naturally without any hardcoded string.
+    if update.message.location:
+        loc = update.message.location
+        session.set_active(session_id)
+        session.set_location({
+            "lat":     loc.latitude,
+            "lng":     loc.longitude,
+            "city":    "compartilhada via GPS",
+            "country": "",
+        })
+        reply = await _run_agent(
+            session_id,
+            "[usuario compartilhou localizacao via GPS]",
+        )
+        await send_telegram_message(chat_id, reply)
+        return {"ok": True}
 
-    loop  = asyncio.get_event_loop()
-    reply = await loop.run_in_executor(None, agent_run, user_text, history)
+    # ── Text message ──────────────────────────────────────────────────────────
+    if not update.message.text:
+        return {"ok": True}   # photo, sticker, etc. — ignore silently
 
-    session.append_to_history("user",      user_text)
-    session.append_to_history("assistant", reply)
-
-    # Send the reply back to the user on Telegram
+    reply = await _run_agent(session_id, update.message.text)
     await send_telegram_message(chat_id, reply)
-
     return {"ok": True}

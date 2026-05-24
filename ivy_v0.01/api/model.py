@@ -1,4 +1,4 @@
-# api/models.py
+# api/model.py
 
 from pydantic import BaseModel, Field
 
@@ -23,9 +23,15 @@ class TelegramChat(BaseModel):
     id: int   # the chat_id — unique per user, becomes our session_id
 
 
+class TelegramLocation(BaseModel):
+    latitude:  float
+    longitude: float
+
+
 class TelegramMessage(BaseModel):
-    chat: TelegramChat
-    text: str | None = None   # None for photos, stickers, etc. — we ignore those
+    chat:     TelegramChat
+    text:     str              | None = None   # None for photos, stickers, etc.
+    location: TelegramLocation | None = None   # set when user shares GPS location
 
 
 class TelegramUpdate(BaseModel):
