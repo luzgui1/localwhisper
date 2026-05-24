@@ -34,7 +34,7 @@ SYSTEM_PROMPT = """You are Ivy 🌿, a friendly urban leisure assistant.
 
 llm   = ChatOpenAI(model="gpt-4o", temperature=0)
 tools = [get_user_location, search_and_rank_places, get_session_places]
-agent = create_react_agent(model=llm, tools=tools, state_modifier=SYSTEM_PROMPT)
+agent = create_react_agent(model=llm, tools=tools, prompt=SYSTEM_PROMPT)
 
 
 # ── History trimming ──────────────────────────────────────────────────────────
