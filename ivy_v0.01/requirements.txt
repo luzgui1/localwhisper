@@ -1,0 +1,12 @@
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langgraph>=0.2.0
+sentence-transformers>=3.0.0
+numpy>=1.26.0
+googlemaps>=4.10.0
+requests>=2.31.0
+tiktoken>=0.7.0
+fastapi>=0.110.0
+uvicorn>=0.29.0
+httpx>=0.27.0
+tiktoken
