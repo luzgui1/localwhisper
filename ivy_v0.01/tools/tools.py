@@ -17,7 +17,7 @@ from sentence_transformers import SentenceTransformer
 
 from concurrent.futures import ThreadPoolExecutor
 
-from . import session
+from tools import session
 from logger import log
 
 # ── Encoder & singletons ─────────────────────────────────────────────────────────

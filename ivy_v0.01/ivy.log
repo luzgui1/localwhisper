@@ -828,3 +828,113 @@
 22:51:42.358  INFO     ivy  run_verbose()  input='Como faco pra pedir um Bullger? Tenho o telefone ou insta deles?'
 22:51:44.276  DEBUG    ivy  step=2  final_answer (358 chars)
 22:51:44.277  INFO     ivy  run_verbose() done in 1.92s  steps=2
+19:55:48.919  INFO     ivy  Loading SentenceTransformer model
+19:55:51.814  INFO     ivy  Model loaded in 2.89s
+19:56:32.903  INFO     ivy  run()  input='oie! como vc ta?'
+19:56:34.914  INFO     ivy  run() done in 2.01s
+19:56:43.005  INFO     ivy  run()  input='eu vou bem tambem, apesar desse frio danado'
+19:56:45.180  INFO     ivy  run() done in 2.17s
+19:56:54.555  INFO     ivy  run()  input='eu queria um chocolate quente'
+19:56:56.497  INFO     ivy  run() done in 1.94s
+19:57:02.111  INFO     ivy  run()  input='sim'
+19:57:02.971  INFO     ivy  → get_user_location called
+19:57:03.307  DEBUG    ivy  session: location set → São Paulo, Brazil
+19:57:03.308  INFO     ivy  ← get_user_location: fetched in 0.34s → São Paulo, Brazil
+19:57:04.487  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=500m
+19:57:04.488  INFO     ivy  googlemaps.Client initialised
+19:57:05.175  INFO     ivy    gmaps.places → 20 results
+19:57:05.176  DEBUG    ivy    fetching details for 20 places (concurrent, max 5 workers)…
+19:57:06.898  INFO     ivy    fetched 20 places in 2.41s — ranking…
+19:57:07.829  DEBUG    ivy      Café Girondino                  dist=0.38km  sem=0.637  rating=0.895  prox=0.240  price=0.250  → 0.578
+19:57:07.829  DEBUG    ivy      FARINELLA                       dist=0.82km  sem=0.631  rating=0.696  prox=0.000  price=0.500  → 0.533
+19:57:07.829  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B  dist=0.33km  sem=0.669  rating=0.573  prox=0.340  price=0.500  → 0.588
+19:57:07.829  DEBUG    ivy      Café Girondino                  dist=0.15km  sem=0.670  rating=0.562  prox=0.700  price=0.500  → 0.641
+19:57:07.829  DEBUG    ivy      Moscatel Osteria                dist=1.64km  sem=0.674  rating=0.699  prox=0.000  price=0.500  → 0.559
+19:57:07.829  DEBUG    ivy      The Coffee Bloom                dist=0.44km  sem=0.683  rating=0.425  prox=0.120  price=0.500  → 0.542
+19:57:07.829  DEBUG    ivy      GRÃO ESPRESSO                   dist=0.30km  sem=0.655  rating=0.571  prox=0.400  price=0.500  → 0.589
+19:57:07.829  DEBUG    ivy      Café do Farol - Mag Café        dist=0.29km  sem=0.622  rating=0.583  prox=0.420  price=0.500  → 0.574
+19:57:07.829  DEBUG    ivy      Fazenda Café                    dist=0.22km  sem=0.677  rating=0.523  prox=0.560  price=0.500  → 0.619
+19:57:07.829  DEBUG    ivy      Caritó Cookies                  dist=1.90km  sem=0.694  rating=0.639  prox=0.000  price=0.500  → 0.562
+19:57:07.829  DEBUG    ivy      Casa Bauducco                   dist=2.36km  sem=0.626  rating=0.705  prox=0.000  price=0.500  → 0.531
+19:57:07.829  DEBUG    ivy      Flavorati Fábrica de Chocolate  dist=5.41km  sem=0.688  rating=0.691  prox=0.000  price=0.500  → 0.567
+19:57:07.829  DEBUG    ivy      Badaró Art Caffé                dist=0.15km  sem=0.698  rating=0.484  prox=0.700  price=0.500  → 0.646
+19:57:07.829  DEBUG    ivy      Magg Café Copan | Cafeteria no  dist=0.90km  sem=0.679  rating=0.624  prox=0.000  price=0.500  → 0.551
+19:57:07.829  DEBUG    ivy      Bodogami Restaurante e Cafeter  dist=1.04km  sem=0.637  rating=0.791  prox=0.000  price=0.500  → 0.551
+19:57:07.829  DEBUG    ivy      Terraço Notiê by Priceless      dist=0.26km  sem=0.668  rating=0.775  prox=0.480  price=0.250  → 0.614
+19:57:07.829  DEBUG    ivy      Maria Cristina Doces - Loja Ce  dist=0.14km  sem=0.678  rating=0.637  prox=0.720  price=0.500  → 0.660
+19:57:07.829  DEBUG    ivy      Praça da Moça Café              dist=0.26km  sem=0.679  rating=0.388  prox=0.480  price=0.500  → 0.588
+19:57:07.829  DEBUG    ivy      Takkø Café - Vila Buarque       dist=1.39km  sem=0.661  rating=0.708  prox=0.000  price=0.500  → 0.553
+19:57:07.829  DEBUG    ivy      Dengo                           dist=2.27km  sem=0.683  rating=0.641  prox=0.000  price=0.500  → 0.556
+19:57:07.829  DEBUG    ivy  session: stored 20 places
+19:57:07.829  INFO     ivy  ← search_and_rank_places OK in 3.34s → top: 'Maria Cristina Doces - Loja Centro' (0.660)
+19:57:11.735  INFO     ivy  run() done in 9.62s
+19:57:26.238  INFO     ivy  run()  input='qual destas opcoes estao abertas agora?'
+19:57:27.874  INFO     ivy  → get_session_places  name=''
+19:57:27.874  INFO     ivy  ← get_session_places (all) in 0.000s → 19 places
+19:57:29.856  INFO     ivy  run() done in 3.62s
+19:57:42.889  INFO     ivy  run()  input='qual e a mais perto de mim?'
+19:57:43.577  INFO     ivy  → get_user_location called
+19:57:43.578  INFO     ivy  ← get_user_location: session hit in 0.000s
+19:57:44.462  INFO     ivy  → get_session_places  name=''
+19:57:44.463  INFO     ivy  ← get_session_places (all) in 0.000s → 19 places
+19:57:45.318  INFO     ivy  run() done in 2.43s
+19:57:59.187  INFO     ivy  run()  input='sera que o ccbb ta aberto mesmo?'
+19:57:59.977  INFO     ivy  → get_session_places  name='Café Girondino'
+19:57:59.977  DEBUG    ivy  session: place hit → 'Café Girondino'
+19:57:59.977  INFO     ivy  ← get_session_places (one) in 0.000s → 'Café Girondino'
+19:58:01.799  INFO     ivy  run() done in 2.61s
+20:58:24.650  INFO     ivy  Loading SentenceTransformer model
+20:58:27.145  INFO     ivy  Model loaded in 2.49s
+21:04:45.060  DEBUG    ivy  session: active → 'test-001'
+21:04:45.063  DEBUG    ivy  session: new slot created for 'test-001'
+21:04:45.065  INFO     ivy  run()  input='oi ivy, tudo bem?'
+21:04:46.980  INFO     ivy  run() done in 1.91s
+21:04:46.981  DEBUG    ivy  session: history +user (17 chars)
+21:04:46.981  DEBUG    ivy  session: history +assistant (54 chars)
+21:05:42.621  DEBUG    ivy  session: active → 'test-001'
+21:05:42.623  INFO     ivy  run()  input='ta um friozinho hoje em sp'
+21:05:43.937  INFO     ivy  run() done in 1.31s
+21:05:43.937  DEBUG    ivy  session: history +user (26 chars)
+21:05:43.937  DEBUG    ivy  session: history +assistant (226 chars)
+21:05:54.835  DEBUG    ivy  session: active → 'test-001'
+21:05:54.836  INFO     ivy  run()  input='me recomenda um chocolate quente perto de mim'
+21:05:56.529  INFO     ivy  → get_user_location called
+21:05:56.529  DEBUG    ivy  session: new slot created for 'cli'
+21:05:56.892  DEBUG    ivy  session: location set → São Paulo, Brazil
+21:05:56.892  INFO     ivy  ← get_user_location: fetched in 0.36s → São Paulo, Brazil
+21:05:57.962  INFO     ivy  → search_and_rank_places  query='chocolate quente aconchegante'  lat=-23.5475  lng=-46.6361  radius=500m
+21:05:57.964  INFO     ivy  googlemaps.Client initialised
+21:05:58.665  INFO     ivy    gmaps.places → 20 results
+21:05:58.665  DEBUG    ivy    fetching details for 20 places (concurrent, max 5 workers)…
+21:06:00.444  INFO     ivy    fetched 20 places in 2.48s — ranking…
+21:06:01.124  DEBUG    ivy      Café Girondino                  dist=0.38km  sem=0.637  rating=0.895  prox=0.240  price=0.250  → 0.578
+21:06:01.125  DEBUG    ivy      IL BARISTA CAFÉS ESPECIAIS - B  dist=0.33km  sem=0.669  rating=0.573  prox=0.340  price=0.500  → 0.588
+21:06:01.125  DEBUG    ivy      Moscatel Osteria                dist=1.64km  sem=0.674  rating=0.699  prox=0.000  price=0.500  → 0.559
+21:06:01.125  DEBUG    ivy      Café Girondino                  dist=0.15km  sem=0.670  rating=0.562  prox=0.700  price=0.500  → 0.641
+21:06:01.125  DEBUG    ivy      GRÃO ESPRESSO                   dist=0.30km  sem=0.655  rating=0.571  prox=0.400  price=0.500  → 0.589
+21:06:01.126  DEBUG    ivy      The Coffee Bloom                dist=0.44km  sem=0.683  rating=0.425  prox=0.120  price=0.500  → 0.542
+21:06:01.126  DEBUG    ivy      Caritó Cookies                  dist=1.90km  sem=0.694  rating=0.639  prox=0.000  price=0.500  → 0.562
+21:06:01.126  DEBUG    ivy      Flavorati Fábrica de Chocolate  dist=5.41km  sem=0.688  rating=0.691  prox=0.000  price=0.500  → 0.567
+21:06:01.126  DEBUG    ivy      Fazenda Café                    dist=0.22km  sem=0.677  rating=0.523  prox=0.560  price=0.500  → 0.619
+21:06:01.126  DEBUG    ivy      Badaró Art Caffé                dist=0.15km  sem=0.698  rating=0.484  prox=0.700  price=0.500  → 0.646
+21:06:01.126  DEBUG    ivy      Bodogami Restaurante e Cafeter  dist=1.04km  sem=0.637  rating=0.791  prox=0.000  price=0.500  → 0.551
+21:06:01.126  DEBUG    ivy      Magg Café Copan | Cafeteria no  dist=0.90km  sem=0.679  rating=0.624  prox=0.000  price=0.500  → 0.551
+21:06:01.126  DEBUG    ivy      Café do Farol - Mag Café        dist=0.29km  sem=0.623  rating=0.583  prox=0.420  price=0.500  → 0.574
+21:06:01.126  DEBUG    ivy      FARINELLA                       dist=0.82km  sem=0.631  rating=0.696  prox=0.000  price=0.500  → 0.533
+21:06:01.126  DEBUG    ivy      Terraço Notiê by Priceless      dist=0.26km  sem=0.668  rating=0.776  prox=0.480  price=0.250  → 0.614
+21:06:01.126  DEBUG    ivy      Maria Cristina Doces - Loja Ce  dist=0.14km  sem=0.678  rating=0.637  prox=0.720  price=0.500  → 0.660
+21:06:01.126  DEBUG    ivy      Carola Macedo Confeitaria e Ca  dist=7.10km  sem=0.734  rating=0.535  prox=0.000  price=0.500  → 0.570
+21:06:01.126  DEBUG    ivy      Takkø Café - Vila Buarque       dist=1.39km  sem=0.661  rating=0.708  prox=0.000  price=0.500  → 0.553
+21:06:01.126  DEBUG    ivy      Hachi Crepe & Taiyaki           dist=1.49km  sem=0.640  rating=0.833  prox=0.000  price=0.500  → 0.559
+21:06:01.126  DEBUG    ivy      Casa Bauducco                   dist=2.36km  sem=0.626  rating=0.705  prox=0.000  price=0.500  → 0.531
+21:06:01.126  DEBUG    ivy  session: stored 20 places
+21:06:01.126  INFO     ivy  ← search_and_rank_places OK in 3.16s → top: 'Maria Cristina Doces - Loja Centro' (0.660)
+21:06:04.920  INFO     ivy  run() done in 10.08s
+21:06:04.921  DEBUG    ivy  session: history +user (45 chars)
+21:06:04.921  DEBUG    ivy  session: history +assistant (1516 chars)
+21:06:41.133  DEBUG    ivy  session: active → 'test-002'
+21:06:41.133  DEBUG    ivy  session: new slot created for 'test-002'
+21:06:41.134  INFO     ivy  run()  input='qual foi minha ultima mensagem?'
+21:06:42.328  INFO     ivy  run() done in 1.19s
+21:06:42.328  DEBUG    ivy  session: history +user (31 chars)
+21:06:42.328  DEBUG    ivy  session: history +assistant (111 chars)
